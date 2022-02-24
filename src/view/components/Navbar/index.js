@@ -12,24 +12,24 @@ const Navbar = () => {
             <FaCarSide className="mr-2 " size="2rem" />
             App name
           </h1>
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             How it works
           </a>
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             Contact
           </a>
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             Help
           </a>
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             Pricing
           </a>
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             Payment
           </a>
         </div>
         <div className="flex items-end">
-          <a href="#" className="pr-5 menu-item">
+          <a href="https://www.google.com" className="pr-5 menu-item">
             Order a card
           </a>
         </div>
@@ -54,22 +54,22 @@ const Navbar = () => {
 
         {showMenu && (
           <div className="flex flex-col items-center">
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               How it works
             </a>
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               Contact
             </a>
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               Help
             </a>
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               Pricing
             </a>
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               Payment
             </a>
-            <a href="#" className="menu-item">
+            <a href="https://www.google.com" className="menu-item">
               Order a card
             </a>
           </div>
