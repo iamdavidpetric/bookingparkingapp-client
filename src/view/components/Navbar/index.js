@@ -42,11 +42,11 @@ const Navbar = () => {
             App name
           </h1>
           {showMenu ? (
-            <h1 className="cursor-pointer" onClick={() => setShowMenu(false)}>
+            <h1 className="menu-item" onClick={() => setShowMenu(false)}>
               <FaWindowClose size="2.5rem" />
             </h1>
           ) : (
-            <h1 className="cursor-pointer" onClick={() => setShowMenu(true)}>
+            <h1 className="menu-item" onClick={() => setShowMenu(true)}>
               <FaHamburger size="2.5rem" />
             </h1>
           )}

@@ -1,5 +1,4 @@
 const Progressbar = (props) => {
-  console.log(props);
   return (
     <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
       <div
