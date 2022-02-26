@@ -1,3 +1,4 @@
 import Home from "./Home/";
+import Pricing from "./Pricing";
 
-export { Home };
+export default { Home, Pricing };

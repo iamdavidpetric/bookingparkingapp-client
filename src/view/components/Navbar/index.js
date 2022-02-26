@@ -5,9 +5,12 @@ import {
   FaCarSide,
   FaLockOpen,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "..";
+import { HOME_PATH, PRICING_PATH } from "../../../logic/routes/paths";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
   const [showSingUp, setShowSignUp] = useState(false);
@@ -33,25 +36,20 @@ const Navbar = () => {
     <Fragment>
       <div className="flex-row justify-between bg-purple-500 py-3 px-5 text-white hidden md:flex rounded-xl">
         <div className="flex justify-between items-end">
-          <h1 className="flex text-2xl font-bold pr-5 menu-item">
+          <h1
+            onClick={() => navigate(HOME_PATH)}
+            className="flex text-2xl font-bold pr-5 menu-item"
+          >
             <FaCarSide className="mr-2 " size="2rem" />
             App name
           </h1>
-          <a href="https://www.google.com" className="pr-5 menu-item">
-            How it works
-          </a>
-          <a href="https://www.google.com" className="pr-5 menu-item">
-            Contact
-          </a>
-          <a href="https://www.google.com" className="pr-5 menu-item">
-            Help
-          </a>
-          <a href="https://www.google.com" className="pr-5 menu-item">
+          <p className="pr-5 menu-item">How it works</p>
+          <p className="pr-5 menu-item">Contact</p>
+          <p className="pr-5 menu-item">Help</p>
+          <p onClick={() => navigate(PRICING_PATH)} className="pr-5 menu-item">
             Pricing
-          </a>
-          <a href="https://www.google.com" className="pr-5 menu-item">
-            Payment
-          </a>
+          </p>
+          <p className="pr-5 menu-item">Payment</p>
         </div>
         <div className="flex items-end">
           <Button onClick={openSignupModal} className="px-3 text-xs mr-2 py-1">
@@ -60,15 +58,16 @@ const Navbar = () => {
           <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
             Log In
           </Button>
-          <a href="https://www.google.com" className="pr-5 menu-item">
-            Order a card
-          </a>
+          <p className="pr-5 menu-item">Order a card</p>
         </div>
       </div>
 
       <div className="flex flex-col bg-purple-500 py-3 px-5 text-white md:hidden">
         <div className="flex flex-row justify-between items-center">
-          <h1 className="flex text-2xl font-bold pr-5 menu-item">
+          <h1
+            className="flex text-2xl font-bold pr-5 menu-item"
+            onClick={() => navigate(HOME_PATH)}
+          >
             <FaCarSide className="mr-2 " size="2rem" />
             App name
           </h1>
@@ -85,35 +84,21 @@ const Navbar = () => {
 
         {showMenu && (
           <div className="flex flex-col items-center">
-            <a href="https://www.google.com" className="menu-item">
-              How it works
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Contact
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Help
-            </a>
-            <a href="https://www.google.com" className="menu-item">
+            <p className="menu-item">How it works</p>
+            <p className="menu-item">Contact</p>
+            <p className="menu-item">Help</p>
+            <p onClick={() => navigate(PRICING_PATH)} className="menu-item">
               Pricing
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Payment
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Order a card
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Sing Up
-            </a>
-            <a href="https://www.google.com" className="menu-item">
-              Log In
-            </a>
+            </p>
+            <p className="menu-item">Payment</p>
+            <p className="menu-item">Order a card</p>
+            <p className="menu-item">Sing Up</p>
+            <p className="menu-item">Log In</p>
           </div>
         )}
       </div>
 
-      <Modal visible={showSingUp}>
+      <Modal setVisible={setShowSignUp} visible={showSingUp}>
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
             <div className="flex flex-col justify-center items-center ">
@@ -194,7 +179,7 @@ const Navbar = () => {
         </div>
       </Modal>
 
-      <Modal visible={showLogIn}>
+      <Modal setVisible={setShowLogIn} visible={showLogIn}>
         <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8">
             <div className="flex flex-col justify-center items-center ">
@@ -246,7 +231,7 @@ const Navbar = () => {
                   <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                     <FaLockOpen />
                   </span>
-                  Sign Up
+                  Sign In
                 </button>
                 <button
                   onClick={closeSignIn}
