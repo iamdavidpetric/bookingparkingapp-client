@@ -11,4 +11,5 @@ const Pricing = {
   path: Paths.PRICING_PATH,
 };
 
-export default [Home, Pricing];
+const routes = [Home, Pricing];
+export default routes;
