@@ -12,4 +12,5 @@ const Pricing = {
 };
 
 const routes = [Home, Pricing];
+
 export default routes;
