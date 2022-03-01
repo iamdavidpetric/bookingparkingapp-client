@@ -11,6 +11,21 @@ const Pricing = {
   path: Paths.PRICING_PATH,
 };
 
-const routes = [Home, Pricing];
+const Contact = {
+  element: Pages.Contact,
+  path: Paths.CONTACT_PATH,
+};
+
+const HowItWorks = {
+  element: Pages.HowItWorks,
+  path: Paths.HOWITWORKS_PATH,
+};
+
+const Help = {
+  element: Pages.Help,
+  path: Paths.HELP_PATH,
+};
+
+const routes = [Home, Pricing, Contact, HowItWorks, Help];
 
 export default routes;

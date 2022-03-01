@@ -7,7 +7,13 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "..";
-import { HOME_PATH, PRICING_PATH } from "../../../logic/routes/paths";
+import {
+  HOME_PATH,
+  PRICING_PATH,
+  CONTACT_PATH,
+  HOWITWORKS_PATH,
+  HELP_PATH,
+} from "../../../logic/routes/paths";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -43,9 +49,18 @@ const Navbar = () => {
             <FaCarSide className="mr-2 " size="2rem" />
             App name
           </h1>
-          <p className="pr-5 menu-item">How it works</p>
-          <p className="pr-5 menu-item">Contact</p>
-          <p className="pr-5 menu-item">Help</p>
+          <p
+            onClick={() => navigate(HOWITWORKS_PATH)}
+            className="pr-5 menu-item"
+          >
+            How it works
+          </p>
+          <p onClick={() => navigate(CONTACT_PATH)} className="pr-5 menu-item">
+            Contact
+          </p>
+          <p onClick={() => navigate(HELP_PATH)} className="pr-5 menu-item">
+            Help
+          </p>
           <p onClick={() => navigate(PRICING_PATH)} className="pr-5 menu-item">
             Pricing
           </p>
