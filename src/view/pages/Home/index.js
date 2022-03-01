@@ -65,6 +65,7 @@ const Home = () => {
       </Card>
       {users2.map((user) => (
         <img
+          alt="poza random"
           src={user.avatar}
           key={user.id}
           onClick={() => fetchSelectedUser(user.id)}
