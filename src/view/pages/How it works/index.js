@@ -1,5 +1,4 @@
 import { FaCar, FaCalendarAlt, FaRegMoneyBillAlt } from "react-icons/fa";
-import { SiTesla } from "react-icons/si";
 import { BsLightningCharge } from "react-icons/bs";
 
 const HowItWorks = () => {
