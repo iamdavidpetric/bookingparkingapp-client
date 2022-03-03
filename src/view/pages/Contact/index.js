@@ -13,45 +13,42 @@ const Contact = () => {
   return (
     <Fragment>
       <div className="flex flex-col md:flex-row ">
-        <div className=" my-10 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white h-96  ">
+        <div
+          onClick={() => {
+            setOpenCallModal(true);
+          }}
+          className=" my-10 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white h-96  "
+        >
           <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
             <FiPhoneCall size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
-              <Button
-                onClick={() => {
-                  setOpenCallModal(true);
-                }}
-              >
-                Call us
-              </Button>
+              Call us
             </div>
           </div>
         </div>
-        <div className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-96 ">
+        <div
+          onClick={() => {
+            setOpenMailModal(true);
+          }}
+          className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-96 "
+        >
           <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
             <FiMail size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400">
-              <Button
-                onClick={() => {
-                  setOpenMailModal(true);
-                }}
-              >
-                Mail Us
-              </Button>
+              Mail us
             </div>
           </div>
         </div>
-        <div className=" my-10 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-96">
+        <div
+          onClick={() => {
+            setOpenWriteModal(true);
+          }}
+          className=" my-10 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-96"
+        >
           <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
             <FaPencilAlt size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
-              <Button
-                onClick={() => {
-                  setOpenWriteModal(true);
-                }}
-              >
-                Write us
-              </Button>
+              Write us
             </div>
           </div>
         </div>
