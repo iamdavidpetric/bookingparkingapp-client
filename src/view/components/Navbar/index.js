@@ -129,9 +129,15 @@ const Navbar = () => {
 
         {showMenu && (
           <div className="flex flex-col items-center">
-            <p className="menu-item">How it works</p>
-            <p className="menu-item">Contact</p>
-            <p className="menu-item">Help</p>
+            <p onClick={() => navigate(HOWITWORKS_PATH)} className="menu-item">
+              How it works
+            </p>
+            <p onClick={() => navigate(CONTACT_PATH)} className="menu-item">
+              Contact
+            </p>
+            <p onClick={() => navigate(HELP_PATH)} className="menu-item">
+              Help
+            </p>
             <p onClick={() => navigate(PRICING_PATH)} className="menu-item">
               Pricing
             </p>
