@@ -7,5 +7,13 @@ body {
 }
 
 .menu-item {
-  @apply pr-5 transition duration-150  hover:text-purple-300  cursor-pointer;
+  @apply pr-5 transition duration-150  hover:text-purple-300;
+}
+
+.logo-animation {
+  @apply absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 hover:bg-white hover:text-indigo-500 transition duration-150 text-white;
+}
+
+.text-animation {
+  @apply mt-2 ml-16 text-base text-gray-500 hover:text-black transition duration-150;
 }

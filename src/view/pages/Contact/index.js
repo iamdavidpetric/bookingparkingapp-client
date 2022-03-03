@@ -1,46 +1,63 @@
-import { Button } from "../../components";
+import { FiPhoneCall, FiMail } from "react-icons/fi";
+import { FaPencilAlt } from "react-icons/fa";
+import { Button, Modal } from "../../components";
+
+import "./style.css";
+import { Fragment, useState } from "react";
 
 const Contact = () => {
-  return (
-    <div className="container mx-auto my-20 w-2/3 border-2 rounded-lg border-purple-500 bg-white ">
-      <div className="p-4 space-y-5 shadow-xl">
-        <h4 className="text-center text-3xl">Contact Us</h4>
+  const [openModal, setOpenModal] = useState(false);
 
-        <form>
-          <div className="grid grid-cols-2 gap-5 ">
-            <input
-              type="text"
-              className="border border-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:border-purple-500 focus:border-2 hover:border-purple-700 "
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              className="border border-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:border-purple-500 focus:border-2 hover:border-purple-700 "
-              placeholder="Last Name"
-            />
-            <input
-              type="email"
-              className="border border-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:border-purple-500 focus:border-2 hover:border-purple-700 col-span-2"
-              placeholder="Email"
-            />
-            <input
-              type="tel"
-              className="border border-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:border-purple-500 focus:border-2 hover:border-purple-700 col-span-2"
-              placeholder="Phone"
-            />
-            <textarea
-              cols="10"
-              rows="5"
-              className="border border-gray-500 px-4 py-2 rounded-lg focus:outline-none focus:border-purple-500 focus:border-2 hover:border-purple-700 col-span-2"
-              placeholder="Write your message..."
-            ></textarea>
+  return (
+    <Fragment>
+      <div className="flex flex-col md:flex-row ">
+        <div className=" my-10 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white h-96  ">
+          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+            <FiPhoneCall size="6rem " />
+            <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
+              <Button
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              >
+                Call us
+              </Button>
+            </div>
           </div>
-          <div className="flex flex-row mt-4 justify-center">
-            <Button>Send Message </Button>
+        </div>
+        <div className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-96 ">
+          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
+            <FiMail size="6rem " />
+            <div className=" mt-2 text-3xl text-black hover:text-gray-400">
+              Mail us
+            </div>
           </div>
-        </form>
+        </div>
+        <div className=" my-10 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-96">
+          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+            <FaPencilAlt size="6rem " />
+            <div className=" mt-2 text-3xl text-black hover:text-gray-400">
+              Write us
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <Modal setVisible={setOpenModal} visible={openModal}>
+        <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+          <FiPhoneCall size="6rem " />
+          <Button
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          >
+            saSAsa
+          </Button>
+          <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
+            Call us
+          </div>
+        </div>
+      </Modal>
+    </Fragment>
   );
 };
 

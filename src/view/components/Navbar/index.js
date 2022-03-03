@@ -5,7 +5,7 @@ import {
   FaCarSide,
   FaLockOpen,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button, Modal } from "..";
 import {
   HOME_PATH,
@@ -49,22 +49,52 @@ const Navbar = () => {
             <FaCarSide className="mr-2 " size="2rem" />
             App name
           </h1>
-          <p
-            onClick={() => navigate(HOWITWORKS_PATH)}
-            className="pr-5 menu-item"
+
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "menu-item font-bold underline underline-offset-1"
+                : "menu-item"
+            }
+            to={HOWITWORKS_PATH}
           >
             How it works
-          </p>
-          <p onClick={() => navigate(CONTACT_PATH)} className="pr-5 menu-item">
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "menu-item font-bold underline underline-offset-1"
+                : " menu-item"
+            }
+            to={CONTACT_PATH}
+          >
             Contact
-          </p>
-          <p onClick={() => navigate(HELP_PATH)} className="pr-5 menu-item">
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "menu-item font-bold underline underline-offset-1"
+                : " menu-item"
+            }
+            to={HELP_PATH}
+          >
             Help
-          </p>
-          <p onClick={() => navigate(PRICING_PATH)} className="pr-5 menu-item">
+          </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "menu-item font-bold underline underline-offset-1"
+                : " menu-item"
+            }
+            to={PRICING_PATH}
+          >
             Pricing
-          </p>
-          <p className="pr-5 menu-item">Payment</p>
+          </NavLink>
+
+          <p className=" menu-item">Payment</p>
         </div>
         <div className="flex items-end">
           <Button onClick={openSignupModal} className="px-3 text-xs mr-2 py-1">
