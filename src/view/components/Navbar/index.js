@@ -143,8 +143,12 @@ const Navbar = () => {
             </p>
             <p className="menu-item">Payment</p>
             <p className="menu-item">Order a card</p>
-            <p className="menu-item">Sing Up</p>
-            <p className="menu-item">Log In</p>
+            <p onClick={openSignupModal} className="menu-item">
+              Sing Up
+            </p>
+            <p onClick={openSignIn} className="menu-item">
+              Log In
+            </p>
           </div>
         )}
       </div>

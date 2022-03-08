@@ -2,11 +2,11 @@ import { Button } from "../../components";
 
 const Pricing = () => {
   return (
-    <div className="flex flex-col sm:flex-row mt-20 h-96 space-x-0 sm:space-x-3 space-y-3 sm:space-y-0">
+    <div className="flex flex-col sm:flex-row mt-20 h-96 space-y-3 sm:space-y-0 ">
       {["1", "2", "3"].map((item) => (
         <div
           key={item}
-          className="flex flex-col row-start-1 row-end-4 rounded-md bg-white border-2 border-purple-200 hover:border-purple-700 trasition duration-150 p-3 justify-between w-full sm:w-1/3"
+          className="flex flex-col justify-between w-full sm:w-1/3 rounded-md bg-white border-2 border-purple-200 hover:border-purple-700 trasition duration-150 p-3 hover:mx-10"
         >
           <h2 className=" flex justify-center text-xl font-semibold ">
             Abonament pe sa

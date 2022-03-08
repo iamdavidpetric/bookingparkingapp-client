@@ -82,36 +82,32 @@ const Contact = () => {
       </Modal>
 
       <Modal setVisible={setOpenWriteModal} visible={openWriteModal}>
-        <div className=" container mx-auto rounded-lg border-purple-500 bg-white ">
-          <div className="p-4 space-y-5 ">
+        <div className="container mx-auto rounded-lg border-purple-500 bg-white ">
+          <div className="space-y-5 w-full">
             <h4 className="text-center text-3xl">Contact Us</h4>
 
             <form>
-              <div className="grid grid-cols-1 gap-5 ">
+              <div className="flex flex-col space-y-2">
                 <input
                   type="text"
-                  className="text-field col-span-5"
+                  className="text-field"
                   placeholder="First Name"
                 />
                 <input
                   type="text"
-                  className="text-field col-span-5 "
+                  className="text-field "
                   placeholder="Last Name"
                 />
                 <input
                   type="email"
-                  className="text-field col-span-5"
+                  className="text-field"
                   placeholder="Email"
                 />
-                <input
-                  type="tel"
-                  className="text-field col-span-5"
-                  placeholder="Phone"
-                />
+                <input type="tel" className="text-field" placeholder="Phone" />
                 <textarea
                   cols="10"
                   rows="5"
-                  className="text-field col-span-5"
+                  className="text-field"
                   placeholder="Write your message..."
                 ></textarea>
               </div>
