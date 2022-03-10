@@ -132,6 +132,7 @@ const Navbar = () => {
             <p onClick={() => navigate(HOWITWORKS_PATH)} className="menu-item">
               How it works
             </p>
+
             <p onClick={() => navigate(CONTACT_PATH)} className="menu-item">
               Contact
             </p>

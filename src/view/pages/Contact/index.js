@@ -17,11 +17,11 @@ const Contact = () => {
           onClick={() => {
             setOpenCallModal(true);
           }}
-          className=" my-5 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white  h-48 md:h-96 "
+          className=" my-5 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
         >
           <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
-            <FiPhoneCall size="6rem " />
-            <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
+            <FiPhoneCall className="p-4 md:p-0" size="6rem " />
+            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
               Call us
             </div>
           </div>
@@ -30,11 +30,11 @@ const Contact = () => {
           onClick={() => {
             setOpenMailModal(true);
           }}
-          className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-48 md:h-96"
+          className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
         >
           <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
-            <FiMail size="6rem " />
-            <div className=" mt-2 text-3xl text-black hover:text-gray-400">
+            <FiMail className="p-4 md:p-0 " size="6rem " />
+            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400">
               Mail us
             </div>
           </div>
@@ -43,11 +43,11 @@ const Contact = () => {
           onClick={() => {
             setOpenWriteModal(true);
           }}
-          className=" my-5 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-48 md:h-96"
+          className=" my-5 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-purple-400 md:bg-white h-48 md:h-96"
         >
           <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
-            <FaPencilAlt size="6rem " />
-            <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
+            <FaPencilAlt className="p-4 md:p-0" size="6rem " />
+            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
               Write us
             </div>
           </div>
