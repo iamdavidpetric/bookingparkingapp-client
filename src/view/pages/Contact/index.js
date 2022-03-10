@@ -17,9 +17,9 @@ const Contact = () => {
           onClick={() => {
             setOpenCallModal(true);
           }}
-          className=" my-10 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white h-96  "
+          className=" my-5 md:my-20 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-white  h-48 md:h-96 "
         >
-          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+          <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
             <FiPhoneCall size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
               Call us
@@ -30,9 +30,9 @@ const Contact = () => {
           onClick={() => {
             setOpenMailModal(true);
           }}
-          className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-96 "
+          className=" md:my-20 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  bg-white h-48 md:h-96"
         >
-          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
+          <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
             <FiMail size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400">
               Mail us
@@ -43,9 +43,9 @@ const Contact = () => {
           onClick={() => {
             setOpenWriteModal(true);
           }}
-          className=" my-10 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-96"
+          className=" my-5 md:my-20 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  bg-white h-48 md:h-96"
         >
-          <div className="flex flex-col items-center mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+          <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
             <FaPencilAlt size="6rem " />
             <div className=" mt-2 text-3xl text-black hover:text-gray-400 ">
               Write us
