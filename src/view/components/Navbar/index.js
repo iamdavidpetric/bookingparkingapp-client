@@ -13,6 +13,7 @@ import {
   CONTACT_PATH,
   HOWITWORKS_PATH,
   HELP_PATH,
+  ORDERACARD_PATH,
 } from "../../../logic/routes/paths";
 
 const Navbar = () => {
@@ -103,7 +104,16 @@ const Navbar = () => {
           <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
             Log In
           </Button>
-          <p className="pr-5 menu-item">Order a card</p>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "menu-item font-bold underline underline-offset-1"
+                : " menu-item"
+            }
+            to={ORDERACARD_PATH}
+          >
+            Order a card
+          </NavLink>
         </div>
       </div>
 
@@ -143,7 +153,9 @@ const Navbar = () => {
               Pricing
             </p>
             <p className="menu-item">Payment</p>
-            <p className="menu-item">Order a card</p>
+            <p onClick={() => navigate(ORDERACARD_PATH)} className="menu-item">
+              Order a card
+            </p>
             <p onClick={openSignupModal} className="menu-item">
               Sing Up
             </p>

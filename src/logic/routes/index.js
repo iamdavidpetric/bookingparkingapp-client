@@ -26,6 +26,11 @@ const Help = {
   path: Paths.HELP_PATH,
 };
 
-const routes = [Home, Pricing, Contact, HowItWorks, Help];
+const OrderACard = {
+  element: Pages.OrderACard,
+  path: Paths.ORDERACARD_PATH,
+};
+
+const routes = [Home, Pricing, Contact, HowItWorks, Help, OrderACard];
 
 export default routes;
