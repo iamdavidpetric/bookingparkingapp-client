@@ -5,6 +5,7 @@ import {
   FaCarSide,
   FaLockOpen,
 } from "react-icons/fa";
+import { MdAccountCircle } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button, Modal } from "..";
 import {
@@ -14,6 +15,7 @@ import {
   HOWITWORKS_PATH,
   HELP_PATH,
   ORDERACARD_PATH,
+  MYACCOUNT_PATH,
 } from "../../../logic/routes/paths";
 
 const Navbar = () => {
@@ -39,6 +41,14 @@ const Navbar = () => {
   const closeSignIn = () => {
     setShowLogIn(false);
   };
+
+  const currentUser = {
+    name: "David Petric",
+    email: "david.petric@gmail.com",
+    hasOrderdACard: true,
+    isLogged: true,
+  };
+
   return (
     <Fragment>
       <div className="flex-row justify-between bg-purple-500 py-3 px-5 text-white hidden md:flex rounded-xl">
@@ -97,24 +107,48 @@ const Navbar = () => {
 
           <p className=" menu-item">Payment</p>
         </div>
-        <div className="flex items-end">
-          <Button onClick={openSignupModal} className="px-3 text-xs mr-2 py-1">
-            Sing Up
-          </Button>
-          <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
-            Log In
-          </Button>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "menu-item font-bold underline underline-offset-1"
-                : " menu-item"
-            }
-            to={ORDERACARD_PATH}
-          >
-            Order a card
-          </NavLink>
-        </div>
+        {currentUser.isLogged ? (
+          <div className="flex items-end">
+            <Button
+              onClick={() => navigate(MYACCOUNT_PATH)}
+              className=" py-0 border-0 px-0 mr-4  "
+            >
+              My account
+            </Button>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "menu-item font-bold underline underline-offset-1"
+                  : " menu-item"
+              }
+              to={ORDERACARD_PATH}
+            >
+              Order a card
+            </NavLink>
+          </div>
+        ) : (
+          <div className="flex items-end">
+            <Button
+              onClick={openSignupModal}
+              className="px-3 text-xs mr-2 py-1"
+            >
+              Sing Up
+            </Button>
+            <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
+              Log In
+            </Button>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "menu-item font-bold underline underline-offset-1"
+                  : " menu-item"
+              }
+              to={ORDERACARD_PATH}
+            >
+              Order a card
+            </NavLink>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col bg-purple-500 py-3 px-5 text-white md:hidden">

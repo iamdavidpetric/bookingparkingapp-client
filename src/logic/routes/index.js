@@ -31,6 +31,19 @@ const OrderACard = {
   path: Paths.ORDERACARD_PATH,
 };
 
-const routes = [Home, Pricing, Contact, HowItWorks, Help, OrderACard];
+const MyAccount = {
+  element: Pages.MyAccount,
+  path: Paths.MYACCOUNT_PATH,
+};
+
+const routes = [
+  Home,
+  Pricing,
+  Contact,
+  HowItWorks,
+  Help,
+  OrderACard,
+  MyAccount,
+];
 
 export default routes;
