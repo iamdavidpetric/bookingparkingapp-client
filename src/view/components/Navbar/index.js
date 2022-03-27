@@ -5,7 +5,7 @@ import {
   FaCarSide,
   FaLockOpen,
 } from "react-icons/fa";
-import { MdAccountCircle } from "react-icons/md";
+
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
 import { Button, Modal } from "..";

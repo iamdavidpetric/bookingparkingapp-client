@@ -1,6 +1,5 @@
 import { RiAccountCircleLine } from "react-icons/ri";
 import { Button } from "../../components";
-import { Fragment } from "react";
 
 const MyAccount = () => {
   return (
