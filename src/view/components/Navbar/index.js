@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { NavLink, useNavigate } from "react-router-dom";
+import { BsFillPersonFill } from "react-icons/bs";
 import { Button, Modal } from "..";
 import {
   HOME_PATH,
@@ -111,10 +112,24 @@ const Navbar = () => {
           <div className="flex items-end">
             <Button
               onClick={() => navigate(MYACCOUNT_PATH)}
-              className=" py-0 border-0 px-0 mr-4  "
+              className=" py-0 border-0 px-0 mr-4 hover:bg-inherit hover:text-purple-300 "
             >
-              My account
+              <BsFillPersonFill
+                className=" py-0 border-0 px-0 mr-4 "
+                size="1.5rem"
+              />
             </Button>
+            {/* afisez si partea de log-in/log-off pt test */}
+            <Button
+              onClick={openSignupModal}
+              className="px-3 text-xs mr-2 py-1"
+            >
+              Sing Up
+            </Button>
+            <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
+              Log In
+            </Button>
+            {/* -- */}
             <NavLink
               className={({ isActive }) =>
                 isActive
