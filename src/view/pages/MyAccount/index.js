@@ -49,24 +49,6 @@ const MyAccount = () => {
                 </div>
                 <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">Yes</div>
               </div>
-              <div className="flex flex-col sm:flex-row justify-evenly ">
-                <div
-                  onClick={() => console.log("Click")}
-                  className=" bg-purple-100 shadow w-full sm:w-2/4 sm:rounded-lg mt-7 text-sm font-medium text-gray-500 py-2 text-center sm:mr-3 mb-5"
-                >
-                  <Button className="bg-purple-500 w-2/4 h-14 text-white">
-                    Your current booking
-                  </Button>
-                </div>
-                <div
-                  onClick={() => console.log("Click2")}
-                  className="bg-purple-100 shadow w-full sm:w-2/4 sm:rounded-lg mt-7 text-sm font-medium text-gray-500 py-2 text-center sm:ml-3 mb-5"
-                >
-                  <Button className="bg-purple-500 w-2/4 h-14 text-white">
-                    Your booking history
-                  </Button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -122,6 +104,23 @@ const MyAccount = () => {
                     Cancel your booking
                   </Button>
                 </div>
+              </div>
+              <div className="mt-3 mb-3 flex items-start ml-3">
+                <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                  <input
+                    type="checkbox"
+                    name="toggle"
+                    id="toggle"
+                    className="toggle-checkbox absolute block w-6 h-6 rounded-full border-purple-600 bg-white border-4 appearance-none cursor-pointer"
+                  />
+                  <label
+                    htmlFor="toggle"
+                    className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
+                  ></label>
+                </div>
+                <label htmlFor="toggle" className=" mt-1 text-xs text-gray-700">
+                  Your booking history
+                </label>
               </div>
             </div>
           </div>

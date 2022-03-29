@@ -17,3 +17,17 @@ body {
 .text-animation {
   @apply mt-2 ml-16 text-base text-gray-500 hover:text-black transition duration-150;
 }
+
+.switch-animation {
+  @apply translate-x-full bg-indigo-500;
+}
+
+.toggle-checkbox:checked {
+  @apply: right-0 transition duration-1000;
+  right: 0;
+  border-color: #ba00e9;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: transition duration-1000;
+  background-color: #ba00e9;
+}
