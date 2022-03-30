@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { RiAccountCircleLine } from "react-icons/ri";
-import { Button } from "../../components";
+import { Button, Switch } from "../../components";
 
 const MyAccount = () => {
-  const [toggle, setToggle] = useState(true);
-  const toggler = () => {
-    toggle ? setToggle(false) : setToggle(true);
-  };
+  const [toggleSwitch, setToggleSwitch] = useState(false);
+
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row h-24  rounded-lg ">
@@ -58,27 +56,12 @@ const MyAccount = () => {
           </div>
         </div>
         <div className=" bg-purple-50 shadow w-full text-center mt-5 sm:w-1/3 sm:h-90 sm:mt-0 overflow-hidden sm:rounded-lg mb-5">
-          <div className="mt-3 mb-3 flex items-start ml-3">
-            <div
-              onClick={toggler}
-              className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
-            >
-              <input
-                type="checkbox"
-                name="toggle"
-                id="toggle"
-                className=" toggle-checkbox absolute block w-6 h-6 rounded-full border-purple-600 bg-white border-4 appearance-none cursor-pointer"
-              />
-              <label
-                htmlFor="toggle"
-                className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
-              ></label>
-            </div>
-            <label htmlFor="toggle" className=" mt-1 text-xs text-gray-700">
-              Your booking history
-            </label>
-          </div>
-          {toggle ? (
+          <Switch
+            value={toggleSwitch}
+            onChange={() => setToggleSwitch(!toggleSwitch)}
+          />
+
+          {toggleSwitch ? (
             <>
               <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg leading-6 font-medium  text-gray-900">
