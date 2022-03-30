@@ -4,5 +4,6 @@ import Card from "./Card";
 import Progressbar from "./Progressbar";
 import Button from "./Button";
 import Modal from "./Modal";
+import Switch from "./Switch";
 
-export { Navbar, Footer, Card, Progressbar, Button, Modal };
+export { Navbar, Footer, Card, Progressbar, Button, Modal, Switch };

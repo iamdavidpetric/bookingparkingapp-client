@@ -23,7 +23,7 @@ body {
 }
 
 .toggle-checkbox:checked {
-  @apply: right-0 transition duration-1000;
+  @apply: right-0 transition duration-1000 border-color: #ba00e9;
   right: 0;
   border-color: #ba00e9;
 }
