@@ -36,6 +36,11 @@ const MyAccount = {
   path: Paths.MYACCOUNT_PATH,
 };
 
+const Booking = {
+  element: Pages.Booking,
+  path: Paths.BOOKING_PATH,
+};
+
 const routes = [
   Home,
   Pricing,
@@ -44,6 +49,7 @@ const routes = [
   Help,
   OrderACard,
   MyAccount,
+  Booking,
 ];
 
 export default routes;
