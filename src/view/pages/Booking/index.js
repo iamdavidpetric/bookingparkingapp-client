@@ -1,12 +1,23 @@
 import { Progressbar } from "../../components";
 import Calendar from "react-calendar";
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./style.css";
-import ReactMapboxGl from "react-mapbox-gl";
+import ReactMapboxGl from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
+  const ref = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (openCalendar && ref.current && !ref.current.contains(e.target))
+        setOpenCalendar(false);
+    };
+    document.addEventListener("click", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("click", checkIfClickedOutside);
+    };
+  }, [openCalendar]);
   const [value, onChange] = useState(new Date());
   const Map = ReactMapboxGl({
     accessToken:
@@ -23,7 +34,8 @@ const Booking = () => {
               <div className="py-3 border-2">Parking CLuj Arena</div>
               <div
                 onClick={() => setOpenCalendar(!openCalendar)}
-                className="py-3 border-2 cursor-pointer "
+                className="wrapper py-3 border-2 cursor-pointer "
+                ref={ref}
               >
                 Pick a date
               </div>
