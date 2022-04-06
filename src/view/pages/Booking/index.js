@@ -2,7 +2,7 @@ import { Progressbar } from "../../components";
 import Calendar from "react-calendar";
 import { useState } from "react";
 import "./style.css";
-import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
+import ReactMapboxGl from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Booking = () => {
@@ -39,7 +39,7 @@ const Booking = () => {
               <Map
                 center={[23.5891462, 46.7703371]}
                 zoom={[17]}
-                style="mapbox://styles/mapbox/streets-v9"
+                style={`mapbox://styles/mapbox/streets-v9`}
                 containerStyle={{
                   height: "100%",
                   width: "100%",
