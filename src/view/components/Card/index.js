@@ -1,6 +1,6 @@
 const Card = (props) => {
   return (
-    <div className="max-w-full py-4 px-8 bg-teal-600 shadow-lg rounded-lg my-20 hover:bg-teal-500 transition duration-150">
+    <div onClick={props.onClick} className="max-w-full py-4 px-8 bg-teal-600 shadow-lg rounded-lg my-20 hover:bg-teal-500 transition duration-150">
       <div className="flex justify-start -mt-16">
         <h2 className="text-gray-800 text-4xl font-semibold">{props.title}</h2>
       </div>

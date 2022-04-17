@@ -5,19 +5,7 @@ import { useEffect, useState } from "react";
 import routes from "../logic/routes";
 
 const Application = () => {
-  const [users, setUsers] = useState([]);
-  const [albums, setAlbums] = useState([]);
-  const [users2, setUsers2] = useState([]);
-  const [selectedUser, setSelecterdUser] = useState({});
-
-  const API = "http://localhost:3000/api/v1/users";
-
-  useEffect(() => {
-    fetch(API)
-      .then((res) => res.json())
-      .then((res) => setUsers(res));
-  }, []);
-  console.log(users);
+  
 
   return (
     <BrowserRouter>
