@@ -2,12 +2,24 @@ import { Progressbar } from "../../components";
 import Calendar from "react-calendar";
 import { useRef, useState, useEffect } from "react";
 import "./style.css";
+import { useParams } from "react-router-dom";
 import ReactMapboxGl from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
   const ref = useRef();
+  const { id } = useParams();
+
+  const [parking, setParking] = useState({});
+  const API = "http://localhost:3000/api/v1/parkings/" + id;
+
+  useEffect(() => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((res) => setParking(res));
+  }, []);
+
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if (openCalendar && ref.current && !ref.current.contains(e.target))
@@ -30,8 +42,8 @@ const Booking = () => {
         <div className="flex flex-col w-full mt-5 rounded-xl h-96 bg-white">
           <div className="flex flex-row ">
             <div className="divide-solid  w-1/3 h-96 text-center rounded-l-xl">
-              <div className=" py-3">Cluj-Napoca</div>
-              <div className="py-3 border-2">Parking CLuj Arena</div>
+              <div className=" py-3">{parking.city}</div>
+              <div className="py-3 border-2">{parking.name}</div>
               <div
                 onClick={() => setOpenCalendar(!openCalendar)}
                 className="wrapper py-3 border-2 cursor-pointer "
@@ -49,8 +61,8 @@ const Booking = () => {
             </div>
             <div className="w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
               <Map
-                center={[23.5891462, 46.7703371]}
-                zoom={[17]}
+                center={parking.coordinates}
+                zoom={parking.zoom}
                 style={`mapbox://styles/mapbox/streets-v9`}
                 containerStyle={{
                   height: "100%",

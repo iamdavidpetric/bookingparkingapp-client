@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import axios from "axios";
 import {
   FaHamburger,
   FaWindowClose,
@@ -20,12 +21,28 @@ import {
 } from "../../../logic/routes/paths";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-
+  const [currentUser, setCurrentUser] = useState({ isLogged: false });
   const [showSingUp, setShowSignUp] = useState(false);
-
   const [showLogIn, setShowLogIn] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const submit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3000/api/v1/sessions/", {
+        email: email,
+        password: password,
+      })
+      .then((user) => {
+        setCurrentUser({ ...user, isLogged: true });
+        setShowLogIn(false);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const openSignupModal = () => {
     setShowSignUp(true);
@@ -35,19 +52,10 @@ const Navbar = () => {
     setShowSignUp(false);
   };
 
-  const openSignIn = () => {
-    setShowLogIn(true);
-  };
+  const openSignIn = () => setShowLogIn(true);
 
   const closeSignIn = () => {
     setShowLogIn(false);
-  };
-
-  const currentUser = {
-    name: "David Petric",
-    email: "david.petric@gmail.com",
-    hasOrderdACard: true,
-    isLogged: true,
   };
 
   return (
@@ -120,7 +128,7 @@ const Navbar = () => {
               />
             </Button>
             {/* afisez si partea de log-in/log-off pt test */}
-            <Button
+            {/* <Button
               onClick={openSignupModal}
               className="px-3 text-xs mr-2 py-1"
             >
@@ -128,7 +136,7 @@ const Navbar = () => {
             </Button>
             <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
               Log In
-            </Button>
+            </Button> */}
             {/* -- */}
             <NavLink
               className={({ isActive }) =>
@@ -305,8 +313,7 @@ const Navbar = () => {
                 Sign in to your account
               </h2>
             </div>
-            <form className="mt-8 space-y-6" action="#" method="POST">
-              <input type="hidden" name="remember" value="true" />
+            <form className="mt-8 space-y-6" onSubmit={submit}>
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
                   <label htmlFor="email-address" className="sr-only">
@@ -316,6 +323,8 @@ const Navbar = () => {
                     id="email-address"
                     name="email"
                     type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     autoComplete="email"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -331,6 +340,8 @@ const Navbar = () => {
                     id="password"
                     name="password"
                     type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     autoComplete="current-password"
                     required
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -342,7 +353,7 @@ const Navbar = () => {
               <div className="flex items-center justify-between"></div>
               <div>
                 <button
-                  type="submit"
+                  onClick={submit}
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                 >
                   <span className="absolute left-0 inset-y-0 flex items-center pl-3">

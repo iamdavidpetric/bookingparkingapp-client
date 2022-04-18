@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import routes from "../logic/routes";
 
 const Application = () => {
-  
-
   return (
     <BrowserRouter>
       <div className="flex flex-col justify-between min-h-screen">
