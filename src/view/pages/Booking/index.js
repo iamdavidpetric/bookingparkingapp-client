@@ -3,7 +3,7 @@ import Calendar from "react-calendar";
 import { useRef, useState, useEffect } from "react";
 import "./style.css";
 import { useParams } from "react-router-dom";
-import ReactMapboxGl from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import ReactMapboxGl, { Marker } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Booking = () => {
@@ -68,29 +68,19 @@ const Booking = () => {
                   height: "100%",
                   width: "100%",
                 }}
-              ></Map>
+              >
+                <Marker coordinates={parking.coordinates} anchor="bottom">
+                  <div className="marker" />
+                </Marker>
+              </Map>
             </div>
           </div>
         </div>
         <div className="flex flex-row">
-          <div className=" mt-10 mr-2 rounded-xl bg-white w-2/4 h-72">
-            <div className="mt-5 text-lg text-center">Parcare Brasov</div>
-
-            <div className="mt-5 mx-5">
-              <Progressbar percentage={48} />
-              Parcari normale
+          <div className=" mt-10 mr-2 rounded-xl bg-white w-full h-72">
+            <div className="mt-5 text-lg text-center">
+              Parking {parking.name}
             </div>
-            <div className="mt-5 mx-5">
-              <Progressbar percentage={22} />
-              Parcari premium
-            </div>
-            <div className="mt-5 mx-5">
-              <Progressbar percentage={32} />
-              Parcari ev
-            </div>
-          </div>
-          <div className=" mt-10 ml-2 rounded-xl bg-white  w-2/4 h-72">
-            <div className="mt-5 text-lg text-center">Parcare Timisoara</div>
 
             <div className="mt-5 mx-5">
               <Progressbar percentage={48} />
