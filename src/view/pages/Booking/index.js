@@ -19,11 +19,11 @@ const Booking = () => {
   const [parking, setParking] = useState({});
   const API = "http://localhost:3000/api/v1/parkings/" + id;
 
-  useEffect(() => {
-    fetch(API)
-      .then((res) => res.json())
-      .then((res) => setParking(res));
-  }, []);
+  // useEffect(() => {
+  //   fetch(API)
+  //     .then((res) => res.json())
+  //     .then((res) => setParking(res));
+  // }, []);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {

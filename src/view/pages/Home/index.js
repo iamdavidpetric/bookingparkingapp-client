@@ -8,11 +8,11 @@ const Home = () => {
 
   const API = "http://localhost:3000/api/v1/parkings";
 
-  useEffect(() => {
-    fetch(API)
-      .then((res) => res.json())
-      .then((res) => setParkings(res));
-  }, []);
+  // useEffect(() => {
+  //   fetch(API)
+  //     .then((res) => res.json())
+  //     .then((res) => setParkings(res));
+  // }, []);
 
   const navigate = useNavigate();
 
