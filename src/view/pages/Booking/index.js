@@ -1,13 +1,18 @@
-import { Progressbar } from "../../components";
-import Calendar from "react-calendar";
 import { useRef, useState, useEffect } from "react";
-import "./style.css";
+
+import Calendar from "react-calendar";
 import { useParams } from "react-router-dom";
-import ReactMapboxGl, { Marker } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+
+import { Progressbar } from "../../components";
+
+import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
+  const [value, onChange] = useState(new Date());
+
   const ref = useRef();
   const { id } = useParams();
 
@@ -25,12 +30,14 @@ const Booking = () => {
       if (openCalendar && ref.current && !ref.current.contains(e.target))
         setOpenCalendar(false);
     };
+
     document.addEventListener("click", checkIfClickedOutside);
+
     return () => {
       document.removeEventListener("click", checkIfClickedOutside);
     };
   }, [openCalendar]);
-  const [value, onChange] = useState(new Date());
+
   const Map = ReactMapboxGl({
     accessToken:
       "pk.eyJ1IjoiZGF2aWRwZXRyaWMzNSIsImEiOiJjbDFkbnBucmwwamNqM2Nucm1jMDhwaWhqIn0.1hXjv9UNEdSR7iUyPpoTXg",
@@ -57,7 +64,7 @@ const Booking = () => {
                 </div>
               )}
 
-              <div className=" py-3 border-2 ">Choose the hours</div>
+              <div className=" py-3 border-2 "></div>
             </div>
             <div className="w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
               <Map
@@ -69,7 +76,11 @@ const Booking = () => {
                   width: "100%",
                 }}
               >
-                <Marker coordinates={parking.coordinates} anchor="bottom">
+                <Marker
+                  onClick={() => console.log("ceva")}
+                  coordinates={parking.coordinates}
+                  anchor="bottom"
+                >
                   <div className="marker" />
                 </Marker>
               </Map>

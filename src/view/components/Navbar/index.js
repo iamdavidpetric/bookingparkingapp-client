@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+
 import axios from "axios";
 import {
   FaHamburger,
@@ -6,10 +7,6 @@ import {
   FaCarSide,
   FaLockOpen,
 } from "react-icons/fa";
-
-import { NavLink, useNavigate } from "react-router-dom";
-import { BsFillPersonFill } from "react-icons/bs";
-import { Button, Modal } from "..";
 import {
   HOME_PATH,
   PRICING_PATH,
@@ -19,14 +16,19 @@ import {
   ORDERACARD_PATH,
   MYACCOUNT_PATH,
 } from "../../../logic/routes/paths";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import { Button, Modal } from "..";
+import { FiLogOut } from "react-icons/fi";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
   const [currentUser, setCurrentUser] = useState({ isLogged: false });
   const [showSingUp, setShowSignUp] = useState(false);
   const [showLogIn, setShowLogIn] = useState(false);
-  const [email, setEmail] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
 
@@ -38,10 +40,22 @@ const Navbar = () => {
         password: password,
       })
       .then((user) => {
-        setCurrentUser({ ...user, isLogged: true });
+        setCurrentUser({ ...user.data, isLogged: true });
         setShowLogIn(false);
       })
       .catch((err) => console.log(err));
+  };
+
+  const logout = (e) => {
+    axios
+      .delete("http://localhost:3000/api/v1/sessions/1", {
+        headers: {
+          Authorization: "Bearer  " + currentUser.auth_token,
+        },
+      })
+      .then(() => {
+        setCurrentUser({ isLogged: false });
+      });
   };
 
   const openSignupModal = () => {
@@ -126,6 +140,13 @@ const Navbar = () => {
                 className=" py-0 border-0 px-0 mr-4 "
                 size="1.5rem"
               />
+            </Button>
+
+            <Button
+              onClick={() => logout()}
+              className=" py-0 border-0 px-0 mr-4 hover:bg-inherit hover:text-purple-300 "
+            >
+              <FiLogOut className=" py-0 border-0 px-0 mr-4 " size="1.5rem" />
             </Button>
             {/* afisez si partea de log-in/log-off pt test */}
             {/* <Button
