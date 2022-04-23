@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
 import Calendar from "react-calendar";
-import { useParams } from "react-router-dom";
+import { generatePath, useParams } from "react-router-dom";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-
+import { Creators } from "../../../logic/reducers/application";
 import { Progressbar } from "../../components";
 
 import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import axios from "axios";
 
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
@@ -16,14 +17,17 @@ const Booking = () => {
   const ref = useRef();
   const { id } = useParams();
 
-  const [parking, setParking] = useState({});
+  // const [parking, setParking] = useState({});
   const API = "http://localhost:3000/api/v1/parkings/" + id;
+  const { parking } = useSelector((state) => state.application);
 
-  // useEffect(() => {
-  //   fetch(API)
-  //     .then((res) => res.json())
-  //     .then((res) => setParking(res));
-  // }, []);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/v1/parkings/" + id).then((res) => {
+      dispatch(Creators.updateProps({ parking: res.data }));
+    });
+  }, []);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {

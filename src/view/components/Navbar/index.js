@@ -1,4 +1,6 @@
 import { Fragment, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Creators } from "../../../logic/reducers/application";
 
 import axios from "axios";
 import {
@@ -23,7 +25,6 @@ import { FiLogOut } from "react-icons/fi";
 import { BsFillPersonFill } from "react-icons/bs";
 
 const Navbar = () => {
-  const [currentUser, setCurrentUser] = useState({ isLogged: false });
   const [showSingUp, setShowSignUp] = useState(false);
   const [showLogIn, setShowLogIn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -31,6 +32,9 @@ const Navbar = () => {
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { currentUser } = useSelector((state) => state.application);
 
   const submit = (e) => {
     e.preventDefault();
@@ -40,7 +44,11 @@ const Navbar = () => {
         password: password,
       })
       .then((user) => {
-        setCurrentUser({ ...user.data, isLogged: true });
+        dispatch(
+          Creators.updateProps({
+            currentUser: { ...user.data, isLogged: true },
+          })
+        );
         setShowLogIn(false);
       })
       .catch((err) => console.log(err));
@@ -54,7 +62,7 @@ const Navbar = () => {
         },
       })
       .then(() => {
-        setCurrentUser({ isLogged: false });
+        dispatch(Creators.updateProps({ currentUser: { isLogged: false } }));
       });
   };
 
@@ -216,7 +224,10 @@ const Navbar = () => {
         </div>
 
         {showMenu && (
-          <div className="flex flex-col items-center">
+          <div
+            onClick={() => setShowMenu(false)}
+            className="flex flex-col items-center"
+          >
             <p onClick={() => navigate(HOWITWORKS_PATH)} className="menu-item">
               How it works
             </p>

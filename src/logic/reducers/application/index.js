@@ -12,7 +12,9 @@ export const { Types, Creators } = createActions(
 );
 
 export const initialState = {
-  currentUser: { isLoggedIn: false },
+  currentUser: { isLogged: false },
+  parkings: [],
+  parking: {},
 };
 
 export default createReducer(initialState, {

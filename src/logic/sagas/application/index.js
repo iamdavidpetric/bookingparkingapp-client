@@ -3,10 +3,7 @@ import { put, takeLatest, select } from "redux-saga/effects";
 import { Types as RootTypes } from "../../redux/rootReducer";
 import { Types as ApplicationTypes } from "../../reducers/application";
 
-export const persisted = function* () {
-  const { currentUser } = yield select((state) => state.application);
-  console.log(currentUser);
-};
+export const persisted = function* () {};
 
 export const resetStore = function* () {
   yield put({ type: RootTypes.RESET });

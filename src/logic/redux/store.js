@@ -7,22 +7,15 @@ import sagas from "../sagas";
 import { storeConfig } from "./config";
 import rootReducer from "./rootReducer";
 
-const EXCLUDED_TYPES = ["persist/REHYDRATE", "@@router/LOCATION_CHANGE"];
-
 const loggerMiddleware = createLogger({
-  predicate: (_getState, action) => !EXCLUDED_TYPES.includes(action.type),
-  collapsed: (_getState, _action, logEntry) => !logEntry.error,
+  collapsed: true,
   duration: true,
   timestamp: false,
   diff: true,
 });
 
 const sagaMiddleware = createSagaMiddleware();
-const middlewares = [sagaMiddleware];
-
-if (process.env.REACT_APP_NODE_ENV === `development`) {
-  middlewares.push(loggerMiddleware);
-}
+const middlewares = [sagaMiddleware, loggerMiddleware];
 
 const enhancer = compose(applyMiddleware(...middlewares));
 
