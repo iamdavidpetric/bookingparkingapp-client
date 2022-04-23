@@ -82,61 +82,53 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <div className="flex-row justify-between bg-purple-500 py-3 px-5 text-white hidden md:flex rounded-xl">
+      <div className="flex-row justify-between  py-3 px-5 text-purple-500 hidden md:flex rounded-xl">
         <div className="flex justify-between items-end">
           <h1
             onClick={() => navigate(HOME_PATH)}
-            className="flex text-2xl font-bold pr-5 menu-item"
+            className="flex text-2xl font-bold pr-5 menu-item border-purple-500"
           >
             <FaCarSide className="mr-2 " size="2rem" />
-            App name
+            park.
           </h1>
 
           <NavLink
             className={({ isActive }) =>
-              isActive
-                ? "menu-item font-bold underline underline-offset-1"
-                : "menu-item"
+              isActive ? "menu-item font-bold  " : "menu-item "
             }
             to={HOWITWORKS_PATH}
           >
-            How it works
+            <div className="border-t-2 border-purple-500">How it works</div>
           </NavLink>
 
           <NavLink
             className={({ isActive }) =>
-              isActive
-                ? "menu-item font-bold underline underline-offset-1"
-                : " menu-item"
+              isActive ? "menu-item font-bold " : " menu-item"
             }
             to={CONTACT_PATH}
           >
-            Contact
+            <div className="border-t-2 border-purple-500 ">Contact</div>
           </NavLink>
 
           <NavLink
             className={({ isActive }) =>
-              isActive
-                ? "menu-item font-bold underline underline-offset-1"
-                : " menu-item"
+              isActive ? "menu-item font-bold " : " menu-item"
             }
             to={HELP_PATH}
           >
-            Help
+            <div className="border-t-2 border-purple-500">Help</div>
           </NavLink>
 
           <NavLink
             className={({ isActive }) =>
-              isActive
-                ? "menu-item font-bold underline underline-offset-1"
-                : " menu-item"
+              isActive ? "menu-item font-bold " : " menu-item"
             }
             to={PRICING_PATH}
           >
-            Pricing
+            <div className="border-t-2 border-purple-500">Pricing</div>
           </NavLink>
 
-          <p className=" menu-item">Payment</p>
+          {/* <p className=" menu-item">Payment</p> */}
         </div>
         {currentUser.isLogged ? (
           <div className="flex items-end">
@@ -169,35 +161,36 @@ const Navbar = () => {
             {/* -- */}
             <NavLink
               className={({ isActive }) =>
-                isActive
-                  ? "menu-item font-bold underline underline-offset-1"
-                  : " menu-item"
+                isActive ? "menu-item font-bold " : " menu-item"
               }
               to={ORDERACARD_PATH}
             >
-              Order a card
+              <div className="border-t-2 border-purple-500">Order a card </div>
             </NavLink>
           </div>
         ) : (
           <div className="flex items-end">
             <Button
               onClick={openSignupModal}
-              className="px-3 text-xs mr-2 py-1"
+              className="px-3 text-xs mr-2 py-1 border-0 hover:bg-purple-200"
             >
               Sing Up
             </Button>
-            <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
+            <Button
+              onClick={openSignIn}
+              className="px-3 text-xs mr-2 py-1 border-0 hover:bg-purple-200"
+            >
               Log In
             </Button>
             <NavLink
               className={({ isActive }) =>
-                isActive
-                  ? "menu-item font-bold underline underline-offset-1"
-                  : " menu-item"
+                isActive ? "menu-item font-bold" : " menu-item"
               }
               to={ORDERACARD_PATH}
             >
-              Order a card
+              <div className="border-t-2 border-purple-500 mr-0">
+                Order a card
+              </div>
             </NavLink>
           </div>
         )}

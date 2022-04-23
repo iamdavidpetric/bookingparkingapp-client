@@ -2,7 +2,7 @@ import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center justify-center bg-purple-100 rounded-md h-24 ">
+    <div className="flex flex-col items-center justify-center bg-purple-200 rounded-md h-24 ">
       <p className=" text-gray-400 text-sm align ">&copy;App name 2022</p>
       <div className="flex flex-row space-x-6 pt-2 ">
         <a
