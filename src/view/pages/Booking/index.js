@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { Creators } from "../../../logic/reducers/application";
 import { Progressbar } from "../../components";
+import { GoSettings } from "react-icons/go";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -12,6 +14,7 @@ import axios from "axios";
 
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [value, onChange] = useState(new Date());
 
   const ref = useRef();
@@ -59,16 +62,16 @@ const Booking = () => {
   const [selectedPark, setSelectedPark] = useState(null);
 
   return (
-    <div className="flex flex-row">
-      <div className="flex flex-col w-full ">
+    <div className="flex flex-col md:flex-row ">
+      <div className="flex flex-col md:w-full ">
         <div className="flex flex-col w-full mt-5 rounded-xl h-96 bg-white">
-          <div className="flex flex-row ">
-            <div className="divide-solid  w-1/3 h-96 text-center rounded-l-xl">
-              <div className=" py-3">{parking.city}</div>
-              <div className="py-3 border-2">{parking.name}</div>
+          <div className="flex flex-row-reverse md:flex flex-row ">
+            <div className="divide-solid w-0 md:w-1/3 h-96 text-center rounded-l-xl">
+              <div className=" py-3 border-b-2">{parking.city}</div>
+              <div className="py-3 border-b-2">{parking.name}</div>
               <div
                 onClick={() => setOpenCalendar(!openCalendar)}
-                className="wrapper py-3 border-2 cursor-pointer "
+                className="wrapper py-3 border-b-2 cursor-pointer "
                 ref={ref}
               >
                 Pick a date
@@ -79,9 +82,14 @@ const Booking = () => {
                 </div>
               )}
 
-              <div className=" py-3 border-2 "></div>
+              <div
+                onClick={() => setOpenCalendar(!openCalendar)}
+                className=" py-3 border-b-2 cursor-pointer  "
+              >
+                Pick a time
+              </div>
             </div>
-            <div className="w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
+            <div className="w-full md:w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
               <Map
                 center={parking.coordinates}
                 zoom={parking.zoom}
@@ -112,8 +120,49 @@ const Booking = () => {
             </div>
           </div>
         </div>
+        <div className="flex flex-col bg-purple-500 py-3 px-5 rounded-b text-white md:hidden">
+          <div className="flex flex-row justify-between items-center">
+            {showMenu ? (
+              <h1 className="menu-item" onClick={() => setShowMenu(false)}>
+                <AiOutlineCloseSquare size="2.5rem" />
+              </h1>
+            ) : (
+              <h1 className="menu-item" onClick={() => setShowMenu(true)}>
+                <GoSettings size="2.5rem" />
+              </h1>
+            )}
+          </div>
+
+          {showMenu && (
+            <div className="flex flex-col items-center">
+              <div className="divide-solid flex flex-col md:w-1/3 h-96 text-center rounded-l-xl">
+                <div className=" py-3 border-b-2">{parking.city}</div>
+                <div className="py-3 border-b-2">{parking.name}</div>
+                <div
+                  onClick={() => setOpenCalendar(!openCalendar)}
+                  className="wrapper py-3 border-b-2 cursor-pointer "
+                  ref={ref}
+                >
+                  Pick a date
+                </div>
+                {openCalendar && (
+                  <div>
+                    <Calendar onChange={onChange} value={value} />
+                  </div>
+                )}
+
+                <div
+                  onClick={() => setOpenCalendar(!openCalendar)}
+                  className=" py-3 border-b-2 cursor-pointer  "
+                >
+                  Pick a time
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="flex flex-row">
-          <div className=" mt-10 mr-2 rounded-xl bg-white w-full h-72">
+          <div className=" mt-10 rounded-xl bg-white w-full h-72">
             <div className="mt-5 text-lg text-center">
               Parking {parking.name}
             </div>

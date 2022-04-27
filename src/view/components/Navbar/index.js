@@ -3,12 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Creators } from "../../../logic/reducers/application";
 
 import axios from "axios";
-import {
-  FaHamburger,
-  FaWindowClose,
-  FaCarSide,
-  FaLockOpen,
-} from "react-icons/fa";
+import { FaHamburger, FaCarSide, FaLockOpen } from "react-icons/fa";
+import { AiOutlineCloseSquare } from "react-icons/ai";
 import {
   HOME_PATH,
   PRICING_PATH,
@@ -99,7 +95,7 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <div className="flex-row justify-between  py-3 px-5 text-purple-500 hidden md:flex rounded-xl">
+      <div className="flex-row justify-between py-3 text-purple-500 hidden md:flex rounded-xl">
         <div className="flex justify-between items-end">
           <h1
             onClick={() => navigate(HOME_PATH)}
@@ -186,12 +182,12 @@ const Navbar = () => {
             {/* -- */}
             <NavLink
               className={({ isActive }) =>
-                isActive ? "menu-item font-bold " : " menu-item"
+                isActive ? "menu-item font-bold " : " "
               }
               to={ORDERACARD_PATH}
             >
               <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
-                Order a card{" "}
+                Order a card
               </div>
             </NavLink>
           </div>
@@ -211,7 +207,7 @@ const Navbar = () => {
             </Button>
             <NavLink
               className={({ isActive }) =>
-                isActive ? "menu-item font-bold" : " menu-item"
+                isActive ? "menu-item font-bold" : " "
               }
               to={ORDERACARD_PATH}
             >
@@ -234,7 +230,7 @@ const Navbar = () => {
           </h1>
           {showMenu ? (
             <h1 className="menu-item" onClick={() => setShowMenu(false)}>
-              <FaWindowClose size="2.5rem" />
+              <AiOutlineCloseSquare size="2.5rem" />
             </h1>
           ) : (
             <h1 className="menu-item" onClick={() => setShowMenu(true)}>
