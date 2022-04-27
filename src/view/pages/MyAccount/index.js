@@ -2,16 +2,18 @@ import { useState } from "react";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { Button, Switch } from "../../components";
 
+import { useSelector } from "react-redux";
+
 const MyAccount = () => {
   const [toggleSwitch, setToggleSwitch] = useState(false);
+
+  const { currentUser } = useSelector((state) => state.application);
 
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-row h-24  rounded-lg ">
         <RiAccountCircleLine className="mt-5 mb-5 ml-5 " size="4rem" />
-        <div className="mt-10 ml-2">
-          Hi, "aici am neoie de numele presonei logate"
-        </div>
+        <div className="mt-10 ml-2">Hi, {currentUser.first_name}</div>
       </div>
       <div className="flex flex-col  w-full sm:flex-row">
         <div className="bg-purple-50 shadow w-full sm:w-2/3 sm:h-48 sm:rounded-lg mr-5">
@@ -27,7 +29,7 @@ const MyAccount = () => {
                   Full name
                 </div>
                 <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">
-                  David Petric(aici trebe sa apara numele utilizatorlui logat)
+                  {currentUser.first_name} {currentUser.last_name}
                 </div>
               </div>
               <div className="bg-purple-50 px-4 py-5  sm:gap-4 sm:px-6">
@@ -35,7 +37,7 @@ const MyAccount = () => {
                   Email address
                 </div>
                 <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">
-                  david.petric99@gmail.com
+                  {currentUser.email}
                 </div>
               </div>
               <div className="bg-purple-100 px-4 py-5  sm:gap-4 sm:px-6">
@@ -43,14 +45,16 @@ const MyAccount = () => {
                   Phone nummber
                 </div>
                 <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">
-                  0751673157
+                  {currentUser.phone_number}
                 </div>
               </div>
               <div className="bg-purple-50 px-4 py-5 sm:gap-4 sm:px-6">
                 <div className="text-sm font-medium text-gray-500 tex">
                   Card
                 </div>
-                <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">Yes</div>
+                <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">
+                  {currentUser.order_a_card}
+                </div>
               </div>
             </div>
           </div>

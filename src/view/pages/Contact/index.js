@@ -1,6 +1,7 @@
 import { FiPhoneCall, FiMail } from "react-icons/fi";
 import { FaPencilAlt } from "react-icons/fa";
 import { Button, Modal } from "../../components";
+import { useSelector } from "react-redux";
 
 import "./style.css";
 import { Fragment, useState } from "react";
@@ -9,6 +10,7 @@ const Contact = () => {
   const [openCallModal, setOpenCallModal] = useState(false);
   const [openMailModal, setOpenMailModal] = useState(false);
   const [openWriteModal, setOpenWriteModal] = useState(false);
+  const { currentUser } = useSelector((state) => state.application);
 
   return (
     <Fragment>
@@ -98,7 +100,7 @@ const Contact = () => {
                 <input
                   type="text"
                   className="text-field"
-                  placeholder="First Name"
+                  placeholder="Firsts Name"
                 />
                 <input
                   type="text"

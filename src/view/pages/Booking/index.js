@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Calendar from "react-calendar";
-import { generatePath, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { Creators } from "../../../logic/reducers/application";
 import { Progressbar } from "../../components";
@@ -42,10 +42,21 @@ const Booking = () => {
     };
   }, [openCalendar]);
 
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setSelectedPark(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+  });
+
   const Map = ReactMapboxGl({
     accessToken:
       "pk.eyJ1IjoiZGF2aWRwZXRyaWMzNSIsImEiOiJjbDFkbnBucmwwamNqM2Nucm1jMDhwaWhqIn0.1hXjv9UNEdSR7iUyPpoTXg",
   });
+
+  const [selectedPark, setSelectedPark] = useState(null);
 
   return (
     <div className="flex flex-row">
@@ -74,19 +85,29 @@ const Booking = () => {
               <Map
                 center={parking.coordinates}
                 zoom={parking.zoom}
-                style={`mapbox://styles/mapbox/streets-v9`}
+                style={`mapbox://styles/davidpetric35/cl2he4si8002516o6xctj2r8e`}
                 containerStyle={{
                   height: "100%",
                   width: "100%",
                 }}
               >
                 <Marker
-                  onClick={() => console.log("ceva")}
+                  // onClick={() => console.log("cevava")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedPark(parking);
+                  }}
                   coordinates={parking.coordinates}
                   anchor="bottom"
                 >
                   <div className="marker" />
                 </Marker>
+
+                {selectedPark ? (
+                  <Popup coordinates={parking.coordinates}>
+                    <div> {parking.description}</div>
+                  </Popup>
+                ) : null}
               </Map>
             </div>
           </div>

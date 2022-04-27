@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Creators } from "../../../logic/reducers/application";
 
@@ -79,6 +79,23 @@ const Navbar = () => {
   const closeSignIn = () => {
     setShowLogIn(false);
   };
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setShowLogIn(false);
+      }
+    };
+    window.addEventListener("keydown", listener);
+  });
+
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setShowSignUp(false);
+      }
+    };
+    window.addEventListener("keydown", listener);
+  });
 
   return (
     <Fragment>
@@ -94,11 +111,13 @@ const Navbar = () => {
 
           <NavLink
             className={({ isActive }) =>
-              isActive ? "menu-item font-bold  " : "menu-item "
+              isActive ? "menu-item font-bold border-red-500 " : "menu-item "
             }
             to={HOWITWORKS_PATH}
           >
-            <div className="border-t-2 border-purple-500">How it works</div>
+            <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
+              How it works
+            </div>
           </NavLink>
 
           <NavLink
@@ -107,7 +126,9 @@ const Navbar = () => {
             }
             to={CONTACT_PATH}
           >
-            <div className="border-t-2 border-purple-500 ">Contact</div>
+            <div className="border-t-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
+              Contact
+            </div>
           </NavLink>
 
           <NavLink
@@ -116,7 +137,9 @@ const Navbar = () => {
             }
             to={HELP_PATH}
           >
-            <div className="border-t-2 border-purple-500">Help</div>
+            <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
+              Help
+            </div>
           </NavLink>
 
           <NavLink
@@ -125,7 +148,9 @@ const Navbar = () => {
             }
             to={PRICING_PATH}
           >
-            <div className="border-t-2 border-purple-500">Pricing</div>
+            <div className="border-t-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
+              Pricing
+            </div>
           </NavLink>
 
           {/* <p className=" menu-item">Payment</p> */}
@@ -165,7 +190,9 @@ const Navbar = () => {
               }
               to={ORDERACARD_PATH}
             >
-              <div className="border-t-2 border-purple-500">Order a card </div>
+              <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
+                Order a card{" "}
+              </div>
             </NavLink>
           </div>
         ) : (
@@ -188,7 +215,7 @@ const Navbar = () => {
               }
               to={ORDERACARD_PATH}
             >
-              <div className="border-t-2 border-purple-500 mr-0">
+              <div className="border-t-2 border-purple-500 mr-0 hover:px-4  duration-200 hover:border-red-500">
                 Order a card
               </div>
             </NavLink>
@@ -203,7 +230,7 @@ const Navbar = () => {
             onClick={() => navigate(HOME_PATH)}
           >
             <FaCarSide className="mr-2 " size="2rem" />
-            App name
+            park.
           </h1>
           {showMenu ? (
             <h1 className="menu-item" onClick={() => setShowMenu(false)}>
@@ -338,6 +365,7 @@ const Navbar = () => {
                 Sign in to your account
               </h2>
             </div>
+
             <form className="mt-8 space-y-6" onSubmit={submit}>
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
