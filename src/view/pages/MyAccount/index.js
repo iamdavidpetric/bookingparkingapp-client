@@ -11,12 +11,22 @@ const MyAccount = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="flex flex-row h-24  rounded-lg ">
-        <RiAccountCircleLine className="mt-5 mb-5 ml-5 " size="4rem" />
-        <div className="mt-10 ml-2">Hi, {currentUser.first_name}</div>
+      <div className="flex flex-row h-24 rounded-lg ">
+        <div className=" flex sm:w-2/3">
+          <RiAccountCircleLine className="mt-5 mb-5 ml-5" size="4rem" />
+          <div className="mt-10 ml-3">Hi, {currentUser.first_name}</div>
+        </div>
+        <div className="sm:w-1/3">
+          <div className="invisible md:mt-16 md:visible">
+            <Switch
+              value={toggleSwitch}
+              onChange={() => setToggleSwitch(!toggleSwitch)}
+            />
+          </div>
+        </div>
       </div>
       <div className="flex flex-col  w-full sm:flex-row">
-        <div className="bg-purple-50 shadow w-full sm:w-2/3 sm:h-48 sm:rounded-lg mr-5">
+        <div className="bg-white shadow w-full sm:w-2/3 sm:h-48 sm:rounded-lg mr-5">
           <div className="px-4 py-5 sm:px-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900">
               Your account information
@@ -32,7 +42,7 @@ const MyAccount = () => {
                   {currentUser.first_name} {currentUser.last_name}
                 </div>
               </div>
-              <div className="bg-purple-50 px-4 py-5  sm:gap-4 sm:px-6">
+              <div className="bg-white px-4 py-5  sm:gap-4 sm:px-6">
                 <div className="text-sm font-medium text-gray-500">
                   Email address
                 </div>
@@ -48,7 +58,7 @@ const MyAccount = () => {
                   {currentUser.phone_number}
                 </div>
               </div>
-              <div className="bg-purple-50 px-4 py-5 sm:gap-4 sm:px-6">
+              <div className="bg-white px-4 py-5 sm:gap-4 sm:px-6">
                 <div className="text-sm font-medium text-gray-500 tex">
                   Card
                 </div>
@@ -59,12 +69,13 @@ const MyAccount = () => {
             </div>
           </div>
         </div>
-        <div className=" bg-purple-50 shadow w-full text-center mt-5 sm:w-1/3 sm:h-90 sm:mt-0 overflow-hidden sm:rounded-lg mb-5">
-          <Switch
-            value={toggleSwitch}
-            onChange={() => setToggleSwitch(!toggleSwitch)}
-          />
-
+        <div className=" bg-white shadow w-full text-center mt-5 sm:w-1/3 sm:h-90 sm:mt-0 overflow-hidden sm:rounded-lg mb-5">
+          <div className="md:hidden">
+            <Switch
+              value={toggleSwitch}
+              onChange={() => setToggleSwitch(!toggleSwitch)}
+            />
+          </div>
           {toggleSwitch ? (
             <>
               <div className="px-4 py-5 sm:px-6">
@@ -82,7 +93,7 @@ const MyAccount = () => {
                       (Cluj/Timisoara/Brasov)
                     </div>
                   </div>
-                  <div className="bg-purple-50 px-4 py-5  sm:gap-4 sm:px-6">
+                  <div className="bg-white px-4 py-5  sm:gap-4 sm:px-6">
                     <div className="text-sm font-medium text-gray-500">
                       Parking name
                     </div>
@@ -98,7 +109,7 @@ const MyAccount = () => {
                       Republicii 102
                     </div>
                   </div>
-                  <div className="bg-purple-50 px-4 py-5  sm:gap-4 sm:px-6">
+                  <div className="bg-white px-4 py-5  sm:gap-4 sm:px-6">
                     <div className="text-sm font-medium text-gray-500">
                       Time:{" "}
                     </div>

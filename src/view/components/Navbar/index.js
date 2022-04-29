@@ -1,10 +1,11 @@
 import { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Creators } from "../../../logic/reducers/application";
-
-import axios from "axios";
-import { FaHamburger, FaCarSide, FaLockOpen } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
+import { BsFillPersonFill, BsList } from "react-icons/bs";
+import { FaCarSide, FaLockOpen } from "react-icons/fa";
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import axios from "axios";
 import {
   HOME_PATH,
   PRICING_PATH,
@@ -17,8 +18,6 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { Button, Modal } from "..";
-import { FiLogOut } from "react-icons/fi";
-import { BsFillPersonFill } from "react-icons/bs";
 
 const Navbar = () => {
   const [showSingUp, setShowSignUp] = useState(false);
@@ -229,12 +228,12 @@ const Navbar = () => {
             park.
           </h1>
           {showMenu ? (
-            <h1 className="menu-item" onClick={() => setShowMenu(false)}>
+            <h1 onClick={() => setShowMenu(false)}>
               <AiOutlineCloseSquare size="2.5rem" />
             </h1>
           ) : (
-            <h1 className="menu-item" onClick={() => setShowMenu(true)}>
-              <FaHamburger size="2.5rem" />
+            <h1 onClick={() => setShowMenu(true)}>
+              <BsList size="2.5rem" />
             </h1>
           )}
         </div>

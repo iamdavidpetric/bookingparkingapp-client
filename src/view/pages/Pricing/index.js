@@ -9,7 +9,7 @@ const Pricing = () => {
     <div className="flex flex-col sm:flex-row md:mt-20 h-96 space-y-3 sm:space-y-0 ">
       <div className="flex flex-col justify-between w-full sm:w-1/3 rounded-md bg-purple-50 hover:bg-purple-100 border-2 border-purple-200 hover:border-purple-700 trasition duration-150 p-3 md:hover:scale-110">
         <h2 className=" flex justify-center text-xl font-semibold ">
-          Abonament pe sa
+          Abonament pe un oras
         </h2>
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center p-2 rounded-full text-white bg-purple-500 h-14 w-14">

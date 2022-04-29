@@ -4,10 +4,10 @@ import Calendar from "react-calendar";
 import { useParams } from "react-router-dom";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { Creators } from "../../../logic/reducers/application";
-import { Progressbar } from "../../components";
+import { Progressbar, Button } from "../../components";
 import { GoSettings } from "react-icons/go";
 import { AiOutlineCloseSquare } from "react-icons/ai";
-
+// import Timeit from "react-timeit";
 import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import axios from "axios";
@@ -82,11 +82,16 @@ const Booking = () => {
                 </div>
               )}
 
-              <div
-                onClick={() => setOpenCalendar(!openCalendar)}
-                className=" py-3 border-b-2 cursor-pointer  "
-              >
+              <div className=" py-3 border-b-2 cursor-pointer  ">
                 Pick a time
+                {/* <Timeit></Timeit> */}
+              </div>
+              <div className=" py-3 border-b-2  ">Date selected</div>
+              <div className=" py-3 border-b-2  ">Time selected</div>
+              <div className=" py-1">
+                <Button className=" border-transparent rounded-br-xl duration-200 text-red-500 w-full h-20 hover:border-white hover:bg-white hover:text-purple-500">
+                  Book now
+                </Button>
               </div>
             </div>
             <div className="w-full md:w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
@@ -151,11 +156,13 @@ const Booking = () => {
                   </div>
                 )}
 
-                <div
-                  onClick={() => setOpenCalendar(!openCalendar)}
-                  className=" py-3 border-b-2 cursor-pointer  "
-                >
+                <div className=" py-3 border-b-2 cursor-pointer  ">
                   Pick a time
+                </div>
+                <div className=" py-3 border-b-2  ">Date selected</div>
+                <div className=" py-3 border-b-2  ">Time selected</div>
+                <div className=" py-3 border-b-2  ">
+                  <Button>Book now</Button>
                 </div>
               </div>
             </div>
