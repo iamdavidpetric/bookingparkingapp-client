@@ -84,14 +84,20 @@ const Booking = () => {
               </div> */}
               {/* {openCalendar && ( */}
               <div className="py-3 border-b-2">
-                <div>Pick a date</div>
-                <DatePicker
-                  className="text-center"
-                  selected={selectDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  dateFormat="dd/MM/yyyy"
-                  minDate={new Date()}
-                />
+                <label>
+                  <div>Pick a date</div>
+                  <DatePicker
+                    className="text-center border-white w-full"
+                    selected={selectDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="dd/MM/yyyy"
+                    minDate={new Date()}
+                    filterDate={(date) =>
+                      date.getDay() !== 6 && date.getDay() !== 0
+                    }
+                    onclick={console.log(selectDate)}
+                  />
+                </label>
               </div>
               {/* )} */}
               <div className=" py-3 border-b-2 cursor-pointer  ">
@@ -152,7 +158,7 @@ const Booking = () => {
 
           {showMenu && (
             <div className="flex flex-col items-center">
-              <div className="divide-solid flex flex-col md:w-1/3 h-96 text-center rounded-l-xl">
+              <div className="divide-solid flex flex-col md:w-1/3 h-96 text-center rounded-l-xl ">
                 <div className=" py-3 border-b-2">{parking.city}</div>
                 <div className="py-3 border-b-2">{parking.name}</div>
                 {/* <div
@@ -171,6 +177,7 @@ const Booking = () => {
                     onChange={(date) => setSelectedDate(date)}
                     dateFormat="dd/MM/yyyy"
                     minDate={new Date()}
+                    onclick={console.log(selectDate)}
                   />
                 </div>
                 {/* )} */}
