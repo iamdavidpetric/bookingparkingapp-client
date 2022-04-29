@@ -1,6 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Calendar from "react-calendar";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import { useParams } from "react-router-dom";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { Creators } from "../../../logic/reducers/application";
@@ -16,6 +20,8 @@ const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [value, onChange] = useState(new Date());
+
+  const [selectDate, setSelectedDate] = useState(null);
 
   const ref = useRef();
   const { id } = useParams();
@@ -69,25 +75,31 @@ const Booking = () => {
             <div className="divide-solid w-0 md:w-1/3 h-96 text-center rounded-l-xl">
               <div className=" py-3 border-b-2">{parking.city}</div>
               <div className="py-3 border-b-2">{parking.name}</div>
-              <div
+              {/* <div
                 onClick={() => setOpenCalendar(!openCalendar)}
                 className="wrapper py-3 border-b-2 cursor-pointer "
                 ref={ref}
               >
                 Pick a date
+              </div> */}
+              {/* {openCalendar && ( */}
+              <div className="py-3 border-b-2">
+                <div>Pick a date</div>
+                <DatePicker
+                  className="text-center"
+                  selected={selectDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  dateFormat="dd/MM/yyyy"
+                  minDate={new Date()}
+                />
               </div>
-              {openCalendar && (
-                <div>
-                  <Calendar onChange={onChange} value={value} />
-                </div>
-              )}
-
+              {/* )} */}
               <div className=" py-3 border-b-2 cursor-pointer  ">
                 Pick a time
                 {/* <Timeit></Timeit> */}
               </div>
-              <div className=" py-3 border-b-2  ">Date selected</div>
-              <div className=" py-3 border-b-2  ">Time selected</div>
+              {/* <div className=" py-3 border-b-2  ">Date selected</div>
+              <div className=" py-3 border-b-2  ">Time selected</div> */}
               <div className=" py-1">
                 <Button className=" border-transparent rounded-br-xl duration-200 text-red-500 w-full h-20 hover:border-white hover:bg-white hover:text-purple-500">
                   Book now
@@ -143,18 +155,25 @@ const Booking = () => {
               <div className="divide-solid flex flex-col md:w-1/3 h-96 text-center rounded-l-xl">
                 <div className=" py-3 border-b-2">{parking.city}</div>
                 <div className="py-3 border-b-2">{parking.name}</div>
-                <div
-                  onClick={() => setOpenCalendar(!openCalendar)}
-                  className="wrapper py-3 border-b-2 cursor-pointer "
-                  ref={ref}
-                >
-                  Pick a date
+                {/* <div
+                onClick={() => setOpenCalendar(!openCalendar)}
+                className="wrapper py-3 border-b-2 cursor-pointer "
+                ref={ref}
+              >
+                Pick a date
+              </div> */}
+                {/* {openCalendar && ( */}
+                <div className="py-3 border-b-2">
+                  <div>Pick a date</div>
+                  <DatePicker
+                    className="text-center"
+                    selected={selectDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="dd/MM/yyyy"
+                    minDate={new Date()}
+                  />
                 </div>
-                {openCalendar && (
-                  <div>
-                    <Calendar onChange={onChange} value={value} />
-                  </div>
-                )}
+                {/* )} */}
 
                 <div className=" py-3 border-b-2 cursor-pointer  ">
                   Pick a time
