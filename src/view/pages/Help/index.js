@@ -1,9 +1,13 @@
 import { Fragment, useState } from "react";
-import { FaCarSide, FaPlug } from "react-icons/fa";
-import { ImHome } from "react-icons/im";
-import { Button, Modal } from "../../components";
-import { CONTACT_PATH } from "../../../logic/routes/paths";
+
 import { useNavigate } from "react-router-dom";
+
+import { CONTACT_PATH } from "../../../logic/routes/paths";
+
+import { Button, Modal } from "../../components";
+
+import { ImHome } from "react-icons/im";
+import { FaCarSide, FaPlug } from "react-icons/fa";
 
 const Help = () => {
   const navigate = useNavigate();
@@ -36,6 +40,7 @@ const Help = () => {
               </div>
             </div>
           </div>
+
           <div className="flex flex-col text-center text-3xl text-black ">
             <div
               onClick={() => {

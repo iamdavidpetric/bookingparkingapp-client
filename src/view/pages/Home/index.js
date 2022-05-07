@@ -1,27 +1,24 @@
-import { Card, Progressbar } from "../../components";
-// import { BOOKING_PATH } from "../../../logic/routes/paths";
+import { useEffect } from "react";
+
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import axios from "axios";
+
 import { Creators } from "../../../logic/reducers/application";
-// import { data } from "autoprefixer";
+
+import { Card, Progressbar } from "../../components";
 
 const Home = () => {
-  // const [parkings, setParkings] = useState([]);
-
-  // const API = "http://localhost:3000/api/v1/parkings";
   const { parkings } = useSelector((state) => state.application);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/v1/parkings/").then((res) => {
       dispatch(Creators.updateProps({ parkings: res.data }));
     });
   }, [dispatch]);
-
-  const navigate = useNavigate();
 
   return (
     <div>

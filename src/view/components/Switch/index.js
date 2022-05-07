@@ -1,9 +1,6 @@
 const Switch = (props) => {
   return (
     <div className="mt-3 mb-3 flex items-start ml-3">
-      {/* <label htmlFor="toggle" className=" mr-2 mt-1 text-xs text-gray-700">
-        Your booking history
-      </label> */}
       <div
         onChange={props.onChange}
         className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"

@@ -8,7 +8,6 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 import axios from "axios";
 import {
   HOME_PATH,
-  // PRICING_PATH,
   CONTACT_PATH,
   HOWITWORKS_PATH,
   HELP_PATH,
@@ -146,19 +145,6 @@ const Navbar = () => {
               Order a card
             </div>
           </NavLink>
-
-          {/* <NavLink
-            className={({ isActive }) =>
-              isActive ? "menu-item font-bold " : " menu-item"
-            }
-            to={PRICING_PATH}
-          >
-            <div className="border-t-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
-              Pricing
-            </div>
-          </NavLink> */}
-
-          {/* <p className=" menu-item">Payment</p> */}
         </div>
         {currentUser.isLogged ? (
           <div className="flex items-end">
@@ -178,27 +164,6 @@ const Navbar = () => {
             >
               <FiLogOut className=" py-0 border-0 px-0 mr-4 " size="1.5rem" />
             </Button>
-            {/* afisez si partea de log-in/log-off pt test */}
-            {/* <Button
-              onClick={openSignupModal}
-              className="px-3 text-xs mr-2 py-1"
-            >
-              Sing Up
-            </Button>
-            <Button onClick={openSignIn} className="px-3 text-xs mr-2 py-1">
-              Log In
-            </Button> */}
-            {/* -- */}
-            {/* <NavLink
-              className={({ isActive }) =>
-                isActive ? "menu-item font-bold " : " "
-              }
-              to={ORDERACARD_PATH}
-            >
-              <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
-                Order a card
-              </div>
-            </NavLink> */}
           </div>
         ) : (
           <div className="flex items-end">
@@ -214,16 +179,6 @@ const Navbar = () => {
             >
               Log In
             </Button>
-            {/* <NavLink
-              className={({ isActive }) =>
-                isActive ? "menu-item font-bold" : " "
-              }
-              to={ORDERACARD_PATH}
-            >
-              <div className="border-t-2 border-purple-500 mr-0 hover:px-4  duration-200 hover:border-red-500">
-                Order a card
-              </div>
-            </NavLink> */}
           </div>
         )}
       </div>
@@ -263,10 +218,7 @@ const Navbar = () => {
             <p onClick={() => navigate(HELP_PATH)} className="menu-item">
               Help
             </p>
-            {/* <p onClick={() => navigate(PRICING_PATH)} className="menu-item">
-              Pricing
-            </p>
-            <p className="menu-item">Payment</p> */}
+
             <p onClick={() => navigate(ORDERACARD_PATH)} className="menu-item">
               Order a card
             </p>

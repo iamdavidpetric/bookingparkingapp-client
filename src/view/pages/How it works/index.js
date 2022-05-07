@@ -1,5 +1,5 @@
-import { FaCar, FaCalendarAlt, FaRegMoneyBillAlt } from "react-icons/fa";
 import { BsLightningCharge } from "react-icons/bs";
+import { FaCar, FaCalendarAlt, FaRegMoneyBillAlt } from "react-icons/fa";
 
 const HowItWorks = () => {
   return (
@@ -85,4 +85,5 @@ const HowItWorks = () => {
     </div>
   );
 };
+
 export default HowItWorks;

@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { RiAccountCircleLine } from "react-icons/ri";
-import { Button, Switch } from "../../components";
 
 import { useSelector } from "react-redux";
+
+import { Button, Switch } from "../../components";
+
+import { RiAccountCircleLine } from "react-icons/ri";
 
 const MyAccount = () => {
   const [toggleSwitch, setToggleSwitch] = useState(false);
@@ -25,6 +27,7 @@ const MyAccount = () => {
           </div>
         </div>
       </div>
+
       <div className="flex flex-col  w-full sm:flex-row">
         <div className="bg-white shadow w-full sm:w-2/3 sm:h-48 sm:rounded-lg mr-5">
           <div className="px-4 py-5 sm:px-6">
@@ -32,6 +35,7 @@ const MyAccount = () => {
               Your account information
             </h3>
           </div>
+
           <div className="border-lg border-gray-200">
             <div>
               <div className="bg-purple-100 px-4 py-5 sm:gap-4 sm:px-6">
@@ -198,4 +202,5 @@ const MyAccount = () => {
     </div>
   );
 };
+
 export default MyAccount;

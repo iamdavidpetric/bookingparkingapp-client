@@ -1,6 +1,7 @@
-import { Button } from "../../components";
-import { Modal } from "../../components";
 import { Fragment, useState } from "react";
+
+import { Modal } from "../../components";
+import { Button } from "../../components";
 
 const OrderACard = () => {
   const [openOrderACard, setOpenOrderACard] = useState(false);

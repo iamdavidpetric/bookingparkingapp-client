@@ -6,11 +6,6 @@ const Home = {
   path: Paths.HOME_PATH,
 };
 
-const Pricing = {
-  element: Pages.Pricing,
-  path: Paths.PRICING_PATH,
-};
-
 const Contact = {
   element: Pages.Contact,
   path: Paths.CONTACT_PATH,
@@ -43,7 +38,6 @@ const Booking = {
 
 const routes = [
   Home,
-  Pricing,
   Contact,
   HowItWorks,
   Help,

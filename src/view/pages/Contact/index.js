@@ -1,26 +1,31 @@
-import { FiPhoneCall, FiMail } from "react-icons/fi";
-import { FaPencilAlt } from "react-icons/fa";
-import { Button, Modal } from "../../components";
+import { Fragment, useState } from "react";
+
 import { useSelector } from "react-redux";
 
+import { Button, Modal } from "../../components";
+
+import { FaPencilAlt } from "react-icons/fa";
+import { FiPhoneCall, FiMail } from "react-icons/fi";
+
 import "./style.css";
-import { Fragment, useState } from "react";
 
 const Contact = () => {
   const [openCallModal, setOpenCallModal] = useState(false);
   const [openMailModal, setOpenMailModal] = useState(false);
   const [openWriteModal, setOpenWriteModal] = useState(false);
+
   const { currentUser } = useSelector((state) => state.application);
 
   return (
     <Fragment>
-      <div className="">
+      <div>
         <img
           src="https://i.imgur.com/1VdJIdm.png"
           alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
           className="mt-4 w-full h-56 object-center object-cover rounded-lg"
         />
       </div>
+
       {currentUser.isLogged ? (
         <div className="flex flex-col md:flex-row ">
           <div
@@ -64,12 +69,12 @@ const Contact = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row ">
+        <div className="flex flex-col md:flex-row justify-between">
           <div
             onClick={() => {
               setOpenCallModal(true);
             }}
-            className=" my-5 md:my-10 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
+            className=" my-5 md:my-10 md:mr-10 md:w-1/2 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
           >
             <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
               <FiPhoneCall className="p-4 md:p-0" size="6rem " />
@@ -82,7 +87,7 @@ const Contact = () => {
             onClick={() => {
               setOpenMailModal(true);
             }}
-            className=" md:my-10 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
+            className=" md:my-10  md:w-1/2 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
           >
             <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
               <FiMail className="p-4 md:p-0 " size="6rem " />
@@ -93,6 +98,7 @@ const Contact = () => {
           </div>
         </div>
       )}
+
       <Modal setVisible={setOpenCallModal} visible={openCallModal}>
         <div className="flex flex-col container  my-10 mr-36 w-3/3 rounded-lg border-purple-500 bg-white">
           <div className="flex flex-col items-center mt-5 mb-3 text-purple-800 hover:text-purple-600 ">
@@ -108,6 +114,7 @@ const Contact = () => {
           </div>
         </div>
       </Modal>
+
       <Modal setVisible={setOpenMailModal} visible={openMailModal}>
         <div className="flex flex-col container my-20 mr-36 w-3/3 rounded-lg border-purple-500 bg-white">
           <div className="flex flex-col items-center mt-5 mb-3 text-purple-800 hover:text-purple-600">
