@@ -21,47 +21,78 @@ const Contact = () => {
           className="mt-4 w-full h-56 object-center object-cover rounded-lg"
         />
       </div>
-      <div className="flex flex-col md:flex-row ">
-        <div
-          onClick={() => {
-            setOpenCallModal(true);
-          }}
-          className=" my-5 md:my-10 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
-        >
-          <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
-            <FiPhoneCall className="p-4 md:p-0" size="6rem " />
-            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
-              Call us
+      {currentUser.isLogged ? (
+        <div className="flex flex-col md:flex-row ">
+          <div
+            onClick={() => {
+              setOpenCallModal(true);
+            }}
+            className=" my-5 md:my-10 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
+          >
+            <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+              <FiPhoneCall className="p-4 md:p-0" size="6rem " />
+              <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
+                Call us
+              </div>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setOpenMailModal(true);
+            }}
+            className=" md:my-10 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
+          >
+            <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
+              <FiMail className="p-4 md:p-0 " size="6rem " />
+              <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400">
+                Mail us
+              </div>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setOpenWriteModal(true);
+            }}
+            className=" my-5 md:my-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-purple-400 md:bg-white h-48 md:h-96"
+          >
+            <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+              <FaPencilAlt className="p-4 md:p-0" size="6rem " />
+              <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
+                Write us
+              </div>
             </div>
           </div>
         </div>
-        <div
-          onClick={() => {
-            setOpenMailModal(true);
-          }}
-          className=" md:my-10 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
-        >
-          <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
-            <FiMail className="p-4 md:p-0 " size="6rem " />
-            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400">
-              Mail us
+      ) : (
+        <div className="flex flex-col md:flex-row ">
+          <div
+            onClick={() => {
+              setOpenCallModal(true);
+            }}
+            className=" my-5 md:my-10 md:mr-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-100  h-48 md:h-96 "
+          >
+            <div className="flex flex-col items-center  mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
+              <FiPhoneCall className="p-4 md:p-0" size="6rem " />
+              <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
+                Call us
+              </div>
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setOpenMailModal(true);
+            }}
+            className=" md:my-10 md:mr-10 md:w-1/3 w-3/3  rounded-lg border-purple-500 hover:border-2  md:bg-white bg-purple-300 h-48 md:h-96"
+          >
+            <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100 ">
+              <FiMail className="p-4 md:p-0 " size="6rem " />
+              <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400">
+                Mail us
+              </div>
             </div>
           </div>
         </div>
-        <div
-          onClick={() => {
-            setOpenWriteModal(true);
-          }}
-          className=" my-5 md:my-10 md:w-1/3 w-3/3 rounded-lg border-purple-500 hover:border-2 bg-purple-400 md:bg-white h-48 md:h-96"
-        >
-          <div className="flex flex-col items-center mt-6 md:mt-24 text-purple-800 hover:text-purple-600 trasition duration-100">
-            <FaPencilAlt className="p-4 md:p-0" size="6rem " />
-            <div className=" md:mt-2 text-xl md:text-3xl text-black hover:text-gray-400 ">
-              Write us
-            </div>
-          </div>
-        </div>
-      </div>
+      )}
       <Modal setVisible={setOpenCallModal} visible={openCallModal}>
         <div className="flex flex-col container  my-10 mr-36 w-3/3 rounded-lg border-purple-500 bg-white">
           <div className="flex flex-col items-center mt-5 mb-3 text-purple-800 hover:text-purple-600 ">

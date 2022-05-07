@@ -19,6 +19,7 @@
     "react-redux": "^8.0.0",
     "react-router-dom": "6.2.1",
     "react-scripts": "^5.0.0",
+    "react-time-picker": "^4.5.0",
     "react-timeit": "^1.1.12",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
@@ -28,7 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start",
+    "start": "PORT=8080 SOURCEMAP=false react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -63,7 +63,7 @@ const MyAccount = () => {
                   Card
                 </div>
                 <div className="mt-1 text-sm text-gray-900 sm:mt-0 ">
-                  {currentUser.order_a_card}
+                  {currentUser.order_a_card ? "yes" : "no yet :)"}
                 </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Calendar from "react-calendar";
+// import Calendar from "react-calendar";
+// import TimePicker from "react-time-picker";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,7 +11,7 @@ import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disab
 import { Creators } from "../../../logic/reducers/application";
 import { Progressbar, Button } from "../../components";
 import { GoSettings } from "react-icons/go";
-import { AiOutlineCloseSquare } from "react-icons/ai";
+import { AiOutlineCloseSquare, AiFillExclamationCircle } from "react-icons/ai";
 // import Timeit from "react-timeit";
 import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -19,7 +20,6 @@ import axios from "axios";
 const Booking = () => {
   const [openCalendar, setOpenCalendar] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [value, onChange] = useState(new Date());
 
   const [selectDate, setSelectedDate] = useState(null);
 
@@ -27,7 +27,7 @@ const Booking = () => {
   const { id } = useParams();
 
   // const [parking, setParking] = useState({});
-  const API = "http://localhost:3000/api/v1/parkings/" + id;
+  // const API = "http://localhost:3000/api/v1/parkings/" + id;
   const { parking } = useSelector((state) => state.application);
 
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const Booking = () => {
     axios.get("http://localhost:3000/api/v1/parkings/" + id).then((res) => {
       dispatch(Creators.updateProps({ parking: res.data }));
     });
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -72,7 +72,7 @@ const Booking = () => {
       <div className="flex flex-col md:w-full ">
         <div className="flex flex-col w-full mt-5 rounded-xl h-96 bg-white">
           <div className="flex flex-row-reverse md:flex flex-row ">
-            <div className="divide-solid w-0 md:w-1/3 h-96 text-center rounded-l-xl">
+            <div className="divide-solid hidden md:flex flex-col md:w-1/3 h-96 text-center rounded-l-xl">
               <div className=" py-3 border-b-2">{parking.city}</div>
               <div className="py-3 border-b-2">{parking.name}</div>
               {/* <div
@@ -85,9 +85,9 @@ const Booking = () => {
               {/* {openCalendar && ( */}
               <div className="py-3 border-b-2">
                 <label>
-                  <div>Pick a date</div>
+                  <div className="cursor-pointer">Pick a date</div>
                   <DatePicker
-                    className="text-center border-white w-full"
+                    className="text-center w-full"
                     selected={selectDate}
                     onChange={(date) => setSelectedDate(date)}
                     dateFormat="dd/MM/yyyy"
@@ -102,6 +102,7 @@ const Booking = () => {
               {/* )} */}
               <div className=" py-3 border-b-2 cursor-pointer  ">
                 Pick a time
+                {/* <TimePicker onChange={onChange} value={value2} /> */}
                 {/* <Timeit></Timeit> */}
               </div>
               {/* <div className=" py-3 border-b-2  ">Date selected</div>
@@ -136,6 +137,10 @@ const Booking = () => {
 
                 {selectedPark ? (
                   <Popup coordinates={parking.coordinates}>
+                    <AiFillExclamationCircle
+                      onClick={() => setSelectedPark(null)}
+                      className="cursor-pointer absolute top-0 right-0"
+                    />
                     <div> {parking.description}</div>
                   </Popup>
                 ) : null}
@@ -170,23 +175,27 @@ const Booking = () => {
               </div> */}
                 {/* {openCalendar && ( */}
                 <div className="py-3 border-b-2">
-                  <div>Pick a date</div>
-                  <DatePicker
-                    className="text-center"
-                    selected={selectDate}
-                    onChange={(date) => setSelectedDate(date)}
-                    dateFormat="dd/MM/yyyy"
-                    minDate={new Date()}
-                    onclick={console.log(selectDate)}
-                  />
+                  <label>
+                    <div>Pick a date</div>
+                    <DatePicker
+                      className="text-center text-black border-white w-full"
+                      selected={selectDate}
+                      onChange={(date) => setSelectedDate(date)}
+                      dateFormat="dd/MM/yyyy"
+                      minDate={new Date()}
+                      filterDate={(date) =>
+                        date.getDay() !== 6 && date.getDay() !== 0
+                      }
+                      onclick={console.log(selectDate)}
+                    />
+                  </label>
                 </div>
                 {/* )} */}
 
                 <div className=" py-3 border-b-2 cursor-pointer  ">
                   Pick a time
                 </div>
-                <div className=" py-3 border-b-2  ">Date selected</div>
-                <div className=" py-3 border-b-2  ">Time selected</div>
+
                 <div className=" py-3 border-b-2  ">
                   <Button>Book now</Button>
                 </div>

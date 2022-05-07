@@ -8,7 +8,7 @@ import { AiOutlineCloseSquare } from "react-icons/ai";
 import axios from "axios";
 import {
   HOME_PATH,
-  PRICING_PATH,
+  // PRICING_PATH,
   CONTACT_PATH,
   HOWITWORKS_PATH,
   HELP_PATH,
@@ -98,7 +98,7 @@ const Navbar = () => {
         <div className="flex justify-between items-end">
           <h1
             onClick={() => navigate(HOME_PATH)}
-            className="flex text-2xl font-bold pr-5 menu-item border-purple-500"
+            className="flex text-2xl font-bold pr-5 menu-item border-purple-500 cursor-pointer"
           >
             <FaCarSide className="mr-2 " size="2rem" />
             park.
@@ -110,7 +110,7 @@ const Navbar = () => {
             }
             to={HOWITWORKS_PATH}
           >
-            <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
+            <div className="border-t-2 px-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
               How it works
             </div>
           </NavLink>
@@ -121,7 +121,7 @@ const Navbar = () => {
             }
             to={CONTACT_PATH}
           >
-            <div className="border-t-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
+            <div className="border-t-2 px-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
               Contact
             </div>
           </NavLink>
@@ -132,12 +132,22 @@ const Navbar = () => {
             }
             to={HELP_PATH}
           >
-            <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
+            <div className="border-t-2 px-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
               Help
             </div>
           </NavLink>
-
           <NavLink
+            className={({ isActive }) =>
+              isActive ? "menu-item font-bold" : " "
+            }
+            to={ORDERACARD_PATH}
+          >
+            <div className="border-t-2 px-2 border-purple-500 mr-0 hover:px-4  duration-200 hover:border-red-500">
+              Order a card
+            </div>
+          </NavLink>
+
+          {/* <NavLink
             className={({ isActive }) =>
               isActive ? "menu-item font-bold " : " menu-item"
             }
@@ -146,7 +156,7 @@ const Navbar = () => {
             <div className="border-t-2 border-purple-500 hover:px-4  duration-200 hover:border-red-500">
               Pricing
             </div>
-          </NavLink>
+          </NavLink> */}
 
           {/* <p className=" menu-item">Payment</p> */}
         </div>
@@ -179,7 +189,7 @@ const Navbar = () => {
               Log In
             </Button> */}
             {/* -- */}
-            <NavLink
+            {/* <NavLink
               className={({ isActive }) =>
                 isActive ? "menu-item font-bold " : " "
               }
@@ -188,23 +198,23 @@ const Navbar = () => {
               <div className="border-t-2 border-purple-500 hover:px-4 duration-200 hover:border-red-500">
                 Order a card
               </div>
-            </NavLink>
+            </NavLink> */}
           </div>
         ) : (
           <div className="flex items-end">
             <Button
               onClick={openSignupModal}
-              className="px-3 text-xs mr-2 py-1 border-0 hover:bg-purple-200"
+              className="px-3 text-xs py-1 border-0 hover:bg-purple-200"
             >
               Sing Up
             </Button>
             <Button
               onClick={openSignIn}
-              className="px-3 text-xs mr-2 py-1 border-0 hover:bg-purple-200"
+              className="px-3 text-xs py-1 border-0 hover:bg-purple-200"
             >
               Log In
             </Button>
-            <NavLink
+            {/* <NavLink
               className={({ isActive }) =>
                 isActive ? "menu-item font-bold" : " "
               }
@@ -213,7 +223,7 @@ const Navbar = () => {
               <div className="border-t-2 border-purple-500 mr-0 hover:px-4  duration-200 hover:border-red-500">
                 Order a card
               </div>
-            </NavLink>
+            </NavLink> */}
           </div>
         )}
       </div>
@@ -253,10 +263,10 @@ const Navbar = () => {
             <p onClick={() => navigate(HELP_PATH)} className="menu-item">
               Help
             </p>
-            <p onClick={() => navigate(PRICING_PATH)} className="menu-item">
+            {/* <p onClick={() => navigate(PRICING_PATH)} className="menu-item">
               Pricing
             </p>
-            <p className="menu-item">Payment</p>
+            <p className="menu-item">Payment</p> */}
             <p onClick={() => navigate(ORDERACARD_PATH)} className="menu-item">
               Order a card
             </p>
