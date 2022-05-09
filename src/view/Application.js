@@ -13,6 +13,8 @@ const Application = () => {
   const { persistor, store } = generateStore();
   const initApp = () => store.dispatch(ApplicationCreators.persisted());
 
+  console.log(process.env);
+
   return (
     <Provider store={store}>
       <BrowserRouter history={history}>
