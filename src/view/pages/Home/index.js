@@ -16,7 +16,9 @@ const Home = () => {
 
   useEffect(() => {
     axios.get(process.env.REACT_API_URL + "/api/v1/parkings/").then((res) => {
-      dispatch(Creators.updateProps({ parkings: res.data }));
+      dispatch(
+        Creators.updateProps({ parkings: Array.isArray(res) ? res.data : [] })
+      );
     });
   }, [dispatch]);
 
