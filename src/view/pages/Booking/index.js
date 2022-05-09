@@ -30,9 +30,11 @@ const Booking = () => {
   const { parking } = useSelector((state) => state.application);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/parkings/" + id).then((res) => {
-      dispatch(Creators.updateProps({ parking: res.data }));
-    });
+    axios
+      .get(process.env.REACT_API_URL + "/api/v1/parkings/" + id)
+      .then((res) => {
+        dispatch(Creators.updateProps({ parking: res.data }));
+      });
   }, [dispatch, id]);
 
   useEffect(() => {

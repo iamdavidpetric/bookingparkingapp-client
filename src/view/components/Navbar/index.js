@@ -33,7 +33,7 @@ const Navbar = () => {
   const submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/api/v1/sessions/", {
+      .post(process.env.REACT_API_URL + "/api/v1/sessions/", {
         email: email,
         password: password,
       })
@@ -50,7 +50,7 @@ const Navbar = () => {
 
   const logout = (e) => {
     axios
-      .delete("http://localhost:3000/api/v1/sessions/1", {
+      .delete(process.env.REACT_API_URL + "/api/v1/sessions/1", {
         headers: {
           Authorization: "Bearer  " + currentUser.auth_token,
         },

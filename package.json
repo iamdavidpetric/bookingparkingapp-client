@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "0.26.1",
     "basic-react-timepicker": "^1.0.0",
+    "env-cmd": "^10.1.0",
     "google-maps-react": "^2.0.6",
     "mapbox-gl": "^2.7.1",
     "react": "^17.0.2",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "start": "PORT=8080 SOURCEMAP=false react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env.prod react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -15,7 +15,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/parkings/").then((res) => {
+    axios.get(process.env.REACT_API_URL + "/api/v1/parkings/").then((res) => {
       dispatch(Creators.updateProps({ parkings: res.data }));
     });
   }, [dispatch]);
