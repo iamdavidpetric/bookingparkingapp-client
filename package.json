@@ -9,7 +9,6 @@
     "axios": "0.26.1",
     "basic-react-timepicker": "^1.0.0",
     "env-cmd": "^10.1.0",
-    "google-maps-react": "^2.0.6",
     "mapbox-gl": "^2.7.1",
     "react": "^17.0.2",
     "react-calendar": "^3.7.0",
@@ -21,7 +20,6 @@
     "react-router-dom": "6.2.1",
     "react-scripts": "^5.0.0",
     "react-time-picker": "^4.5.0",
-    "react-timeit": "^1.1.12",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
@@ -30,8 +28,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "env-cmd -f .env PORT=8080 SOURCEMAP=false react-scripts start",
-    "build": "env-cmd -f .env.prod react-scripts build",
+    "start": "PORT=8080 react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
