@@ -1,10 +1,19 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import { Modal } from "../../components";
 import { Button } from "../../components";
 
 const OrderACard = () => {
   const [openOrderACard, setOpenOrderACard] = useState(false);
+
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setOpenOrderACard(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+  });
 
   return (
     <Fragment>

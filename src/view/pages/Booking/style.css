@@ -165,6 +165,8 @@
   transform: translate(-50%, -50%) rotate(45deg) scaleX(0.5);
 }
 
-.react-datepicker-wrapper input[type="text"] {
-  border: none !important;
+.react-datepicker-wrapper input[type="text"]:focus {
+  border: 0 px !important;
+  border-color: white;
+  outline: none;
 }

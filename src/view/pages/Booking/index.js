@@ -10,7 +10,7 @@ import { Progressbar, Button } from "../../components";
 import DatePicker from "react-datepicker";
 import { GoSettings } from "react-icons/go";
 import ReactMapboxGl, { Marker, Popup } from "!react-mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import { AiOutlineCloseSquare, AiFillExclamationCircle } from "react-icons/ai";
+import { AiOutlineCloseSquare, AiFillCloseCircle } from "react-icons/ai";
 
 import "./style.css";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -75,7 +75,7 @@ const Booking = () => {
                 <label>
                   <div className="cursor-pointer">Pick a date</div>
                   <DatePicker
-                    className="text-center w-full"
+                    className="text-center w-full "
                     selected={selectDate}
                     onChange={(date) => setSelectedDate(date)}
                     dateFormat="dd/MM/yyyy"
@@ -92,11 +92,12 @@ const Booking = () => {
                 Pick a time
               </div>
 
-              <div className=" py-1">
-                <Button className=" border-transparent rounded-br-xl duration-200 text-red-500 w-full h-20 hover:border-white hover:bg-white hover:text-purple-500">
-                  Book now
-                </Button>
-              </div>
+              <Button
+                onClick={() => console.log("ceva")}
+                className=" border-transparent rounded-br-xl duration-200 text-green-300 text-2xl w-full h-full hover:border-white hover:bg-white hover:text-green-500"
+              >
+                Book now
+              </Button>
             </div>
 
             <div className="w-full md:w-2/3 h-96 bg-green-100 text-2xl text-center rounded-r-xl">
@@ -122,7 +123,7 @@ const Booking = () => {
 
                 {selectedPark ? (
                   <Popup coordinates={parking.coordinates}>
-                    <AiFillExclamationCircle
+                    <AiFillCloseCircle
                       onClick={() => setSelectedPark(null)}
                       className="cursor-pointer absolute top-0 right-0"
                     />

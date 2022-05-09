@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 
@@ -15,6 +15,17 @@ const Contact = () => {
   const [openWriteModal, setOpenWriteModal] = useState(false);
 
   const { currentUser } = useSelector((state) => state.application);
+
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === "Escape") {
+        setOpenCallModal(null);
+        setOpenMailModal(null);
+        setOpenWriteModal(null);
+      }
+    };
+    window.addEventListener("keydown", listener);
+  });
 
   return (
     <Fragment>

@@ -2,9 +2,9 @@ const Card = ({ onClick, src, title, children }) => {
   return (
     <div
       onClick={onClick}
-      className="max-w-full py-4 px-8 bg-teal-600 shadow-lg rounded-lg my-20 hover:bg-teal-500 transition duration-150"
+      className="max-w-full py-4 px-8 bg-teal-600 shadow-lg rounded-lg my-20 hover:bg-teal-500 transition duration-150 cursor-pointer"
     >
-      <div className="flex justify-start -mt-16">
+      <div className="flex justify-start -mt-16 ">
         <h2 className="text-gray-800 text-4xl font-semibold">{title}</h2>
       </div>
 
